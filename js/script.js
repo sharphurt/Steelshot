@@ -1,5 +1,5 @@
 (function(){
-    window.onload = InitializeWindow;
+   window.onload = InitializeWindow;
 
     function InitializeWindow(){
         var viewPort = GetWindowViewPort();
@@ -12,6 +12,9 @@
         };
     }
     function modifyWindowZoom(domElement, percentage){
-        domElement.style["zoom"] = percentage;
+        domElement.style["transform"] = "scale(" + percentage + ")";
+        domElement.style["transform-origin"] = "0 0";
+
+        //domElement.style["zoom"] = percentage;
     }
 })();

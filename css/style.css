@@ -126,25 +126,24 @@ body::-webkit-scrollbar {
     color: var(--text-primary);
 }
 
-.promo-text-container {
+.desc-text-container {
     gap: 140px;
 }
 
-.promo-text-container span {
+.desc-text-container span {
     display: block;
     color: var(--text-secondary);
 }
 
-.promo-text-container span:nth-child(1) {
+.slogan-block .desc-text-container span:nth-child(1) {
     width: 210px;
 }
 
-.promo-text-container span:nth-child(2) {
+.slogan-block .desc-text-container span:nth-child(2) {
     width: 320px;
 }
 
 .nav-block {
-    height: 820px;
     padding: 0 16px;
     gap: 16px;
 }
@@ -201,3 +200,103 @@ body::-webkit-scrollbar {
 .social-buttons-container * {
     margin: 0;
 }
+
+.func-header-block {
+    padding: 100px 0 100px 257px;
+    height: 380px;
+    gap: 50px;
+}
+
+.func-header-block .desc-text-container span {
+    width: 360px;
+}
+
+.features-block {
+    padding: 50px 16px;
+    position: relative;
+    height: 1490px;
+
+    .advanced-shooting {
+        width: 460px;
+        height: 460px;
+        position: absolute;
+        top: 50px;
+        left: 16px;
+
+        border-radius: 16px;
+        background: linear-gradient(180deg, #34333000 58%, #34333033 80%, #34333080 100%), url("../assets/advanced-shooting.png"), lightgray 50%;
+        background-size: contain;
+        background-blend-mode: multiply, normal;
+    }
+
+    .high-resolution {
+        width: 696px;
+        height: 220px;
+        position: absolute;
+        top: 50px;
+        left: 728px;
+
+        border-radius: 16px;
+        background: linear-gradient(180deg, #34333000 58%, #34333033 80%, #34333080 100%), url("../assets/high-resolution.png"), lightgray 50%;
+        background-size: contain;
+        background-blend-mode: multiply, normal;
+    }
+
+    .fast-processing {
+        width: 577px;
+        height: 460px;
+        position: absolute;
+        top: 360px;
+        left: 490px;
+
+        border-radius: 16px;
+        background: linear-gradient(180deg, #34333000 58%, #34333033 80%, #34333080 100%), url("../assets/fast-processing.png"), lightgray 50%;
+        background-size: contain;
+        background-blend-mode: multiply, normal;
+    }
+
+    .fast-processing span[class="text-t2"] {
+        width: 150px;
+    }
+
+    .video-recording {
+        width: 815px;
+        height: 220px;
+        position: absolute;
+        top: 839px;
+        left: 16px;
+
+        border-radius: 16px;
+        background: linear-gradient(180deg, #34333000 58%, #34333033 80%, #34333080 100%), url("../assets/video-recording.png"), lightgray 50%;
+        background-size: contain;
+        background-blend-mode: multiply, normal;
+    }
+
+    .wireless-connectivity {
+        width: 372px;
+        height: 360px;
+        position: absolute;
+        top: 1080px;
+        left: 593px;
+
+        border-radius: 16px;
+        background: linear-gradient(180deg, #34333000 58%, #34333033 80%, #34333080 100%), url("../assets/wireless-connectivity.png"), lightgray 50%;
+        background-size: contain;
+        background-blend-mode: multiply, normal;
+    }
+
+    .feature-descr-wrapper {
+        padding: 20px;
+        height: 100%;
+        justify-content: flex-end;
+    }
+
+    .feature-descr-wrapper span {
+        color: var(--text-primaty-d);
+    }
+}
+
+spline-viewer {
+    height: 1000px;
+}
+
