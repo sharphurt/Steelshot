@@ -1,0 +1,38 @@
+@import url("bootstrap.css");
+
+:root {
+    --block-bg: #E5E7E8;
+    --text-primary: #1C1C1C;
+    --text-secondary: #8E8E8E;
+    --text-primaty-d: #E5E7E8;
+    --border: #00000014;
+
+    --large-button-bg: #F6F6F6;
+    --large-button-text: #1C1C1C;
+
+    --button-primary-bg: #242424;
+    --button-primary-text: #E5E7E8;
+
+    --button-secondary-bg: #CACACA;
+    --button-secondary-text: #8E8E8E;
+
+    --accent-orange: #BF5545;
+    --accent-yellow: #F0A443;
+    --accent-blue: #3069F9;
+}
+
+body {
+    background-color: var(--block-bg);
+    margin: 0;
+    width: 1440px;
+}
+
+.header {
+    margin: 16px;
+}
+
+.large-btn {
+    border: none;
+    background-color: var(--large-button-bg);
+    color: var(--large-button-text);
+}
