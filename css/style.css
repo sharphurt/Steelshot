@@ -1,4 +1,5 @@
 @import url("bootstrap.css");
+@import url("text-style.css");
 
 :root {
     --block-bg: #E5E7E8;
@@ -27,12 +28,64 @@ body {
     width: 1440px;
 }
 
+body span {
+    /*noinspection CssInvalidPropertyValue*/
+    text-wrap: nowrap;
+}
+
 .header {
     margin: 16px;
 }
 
+/*TODO: add hover styles*/
 .large-btn {
     border: none;
+    border-radius: 8px;
+
     background-color: var(--large-button-bg);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.large-btn span {
     color: var(--large-button-text);
+}
+
+.main-screen {
+    padding: 0 16px;
+    position: relative;
+    height: 810px;
+}
+
+.main-image {
+    border-radius: 16px;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+.tags-container {
+    gap: 8px;
+    padding: 24px 24px;
+}
+
+.tag {
+    border: 1px solid #E5E7E833;
+    border-radius: 12px;
+
+    padding: 8px 24px 8px 8px;
+
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+}
+
+.tag:not(:first-child) {
+    flex: 0 0 0;
+}
+
+.tags-container * {
+    color: var(--text-primaty-d);
 }
