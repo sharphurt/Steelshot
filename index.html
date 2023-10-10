@@ -11,8 +11,10 @@
 
     <link href="css/style.css" type="text/css" rel="stylesheet">
     <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.473/build/spline-viewer.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <script src="js/script.js"></script>
+    <script type="module" src="js/accessories/accessories-loader.js"></script>
+    <script type="module" src="js/script.js"></script>
 </head>
 <body>
 <section class="header d-flex">
@@ -55,7 +57,8 @@
             <span class="text-h4 text-nowrap">professional</span>
         </div>
     </div>
-    <img class="main-image" src="assets/main-image.png" width="1408" height="809" alt=""/>
+<!--    <img class="main-image" src="assets/main-image.png" width="1408" height="809" alt=""/>-->
+    <video class="main-image" src="assets/lenses.mp4" width="1408" height="809" autoplay loop ></video>
 </section>
 <section class="slogan-block d-flex flex-column justify-content-between">
     <div class="large-lines-container d-flex flex-column">
@@ -78,7 +81,7 @@ of stunning photographs</span>
                 <span class="text-t1">Premium Cameras</span>
             </div>
             <button class="small-btn">
-                <span class="text-t2">Shop now</span>
+                <span class="text-t3">Shop now</span>
             </button>
         </div>
         <img src="assets/watch-cameras.png" width="406" height="500" alt="">
@@ -139,36 +142,97 @@ of stunning photographs</span>
     <div class="advanced-shooting">
         <div class="feature-descr-wrapper d-flex flex-column">
             <span class="text-t1-bold">Advanced shooting modes</span>
-            <span class="text-t2">Automatic and manual settings for creative freedom</span>
+            <span class="text-t3">Automatic and manual settings for creative freedom</span>
         </div>
     </div>
     <div class="high-resolution">
         <div class="feature-descr-wrapper d-flex flex-column">
             <span class="text-t1-bold">High resolution</span>
-            <span class="text-t2">Capture photos of the highest quality</span>
+            <span class="text-t3">Capture photos of the highest quality</span>
         </div>
     </div>
     <div class="fast-processing">
         <div class="feature-descr-wrapper d-flex flex-column">
             <span class="text-t1-bold">Fast processing</span>
-            <span class="text-t2">Instant image processing in the camera</span>
+            <span class="text-t3">Instant image processing in the camera</span>
         </div>
     </div>
     <div class="video-recording">
         <div class="feature-descr-wrapper d-flex flex-column">
             <span class="text-t1-bold">Video recording</span>
-            <span class="text-t2">Record professional-quality videos</span>
+            <span class="text-t3">Record professional-quality videos</span>
         </div>
     </div>
     <div class="wireless-connectivity">
         <div class="feature-descr-wrapper d-flex flex-column">
             <span class="text-t1-bold">Video recording</span>
-            <span class="text-t2">Record professional-quality videos</span>
+            <span class="text-t3">Record professional-quality videos</span>
         </div>
     </div>
 </section>
 
 <!--TODO: Blur on images-->
-<spline-viewer id="spline-viewer" loading-anim url="https://prod.spline.design/PtW4K70yK1VpNrpc/scene.splinecode"></spline-viewer>
+<spline-viewer id="spline-viewer" loading-anim
+               url="https://prod.spline.design/PtW4K70yK1VpNrpc/scene.splinecode"></spline-viewer>
+
+<section class="reel-block">
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span>"Eternal Echoes" <span class="opacity-out">by Olivia Anderson</span></span>
+            <span>"Midnight Serenade" <span class="opacity-out">by Ethan Mitchell</span></span>
+            <span>"Whispers in the Wind" <span class="opacity-out">by Sofia Rodriguez</span></span>
+            <span>"The Forgotten Dreams" <span class="opacity-out">by Lucas Harper</span></span>
+            <span>"Infinite Horizons" <span class="opacity-out">by Ava Sullivan</span></span>
+        </div>
+    </div>
+    <div class="bottom-content-wrapper d-flex flex-row justify-content-between align-items-end">
+        <div class="reel-desc">
+            <span class="text-t1">With our cameras, directors create their best works. And&nbsp;you can too</span>
+        </div>
+        <button class="large-btn btn-glass btn-increased-paddings">
+            <span class="text-t1">Watch reel</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 7.99982C15.0004 8.16959 14.9569 8.33658 14.8736 8.48454C14.7904 8.6325 14.6703 8.7564 14.525 8.8442L5.52 14.3529C5.36818 14.4459 5.19429 14.4967 5.0163 14.5C4.83831 14.5033 4.66266 14.459 4.5075 14.3717C4.35382 14.2858 4.2258 14.1605 4.1366 14.0087C4.04741 13.8568 4.00026 13.684 4 13.5079V2.4917C4.00026 2.31563 4.04741 2.1428 4.1366 1.99099C4.2258 1.83919 4.35382 1.71388 4.5075 1.62795C4.66266 1.54067 4.83831 1.49639 5.0163 1.49968C5.19429 1.50298 5.36818 1.55373 5.52 1.6467L14.525 7.15545C14.6703 7.24324 14.7904 7.36715 14.8736 7.51511C14.9569 7.66307 15.0004 7.83006 15 7.99982Z"
+                      fill="#E5E7E8"/>
+            </svg>
+        </button>
+    </div>
+    <video class="reel-video" src="assets/reel.mp4" width="1440" autoplay muted loop></video>
+</section>
+<section class="accessories-block">
+    <span class="accessories-header text-h2">Accessories</span>
+    <div class="wrapper d-flex flex-row">
+        <div class="navigation-container d-flex flex-column align-items-start">
+            <div class="tab-btn-wrapper">
+                <button class="tab-btn active tab-lenses">
+                    <span>Lenses</span>
+                </button>
+                <span class="tab-descr text-t3">A variety of lenses for different types of shots, allowing you to bring any photographic idea to life</span>
+            </div>
+            <div class="tab-btn-wrapper">
+                <button class="tab-btn tab-cases">
+                    <span>Bags and Cases</span>
+                </button>
+                <span class="tab-descr text-t3">Stylish and functional accessories for carrying your camera, providing both style and protection</span>
+            </div>
+            <div class="tab-btn-wrapper">
+                <button class="tab-btn tab-stands">
+                    <span>Stands and Tripods</span>
+                </button>
+                <span class="tab-descr text-t3">Boost the stability of your shots with high-quality stands and tripods</span>
+            </div>
+            <div class="tab-btn-wrapper">
+                <button class="tab-btn tab-batteries">
+                    <span>Extra Batteries</span>
+                </button>
+                <span class="tab-descr text-t3">Never run out of power in the most crucial moments, thanks to our spare batteries</span>
+            </div>
+        </div>
+        <div class="slider-area d-flex flex-row"></div>
+    </div>
+</section>
+<section class="choose-camera-text-block">
+
+</section>
 </body>
 </html>

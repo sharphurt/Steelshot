@@ -56,6 +56,15 @@
 
 .text-t2 {
     font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 128%;
+    letter-spacing: -0.56px;
+}
+
+.text-t3 {
+    font-family: 'Inter', sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
