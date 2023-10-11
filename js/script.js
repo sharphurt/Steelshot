@@ -4,7 +4,7 @@ import {renderCatalog} from "./accessories/accessories-renderer.js";
 (function () {
     window.onload = function () {
         const splineViewerInner = document.querySelector('spline-viewer').shadowRoot;
-
+        gsap.registerPlugin(ScrollTrigger)
         initializeWindow();
 
         // sorry spline(
@@ -18,7 +18,6 @@ import {renderCatalog} from "./accessories/accessories-renderer.js";
             console.log(catalogs)
             renderCatalog(catalogs['lenses'], catalogContainer);
         })
-
     }
 
     function initializeWindow() {
@@ -29,7 +28,7 @@ import {renderCatalog} from "./accessories/accessories-renderer.js";
 
         let root = document.documentElement;
 
-        root.style.setProperty('--zoom-factor',zoom);
+        root.style.setProperty('--zoom-factor', zoom);
     }
 
     function GetWindowViewPort() {
@@ -40,10 +39,24 @@ import {renderCatalog} from "./accessories/accessories-renderer.js";
     }
 
     function modifyWindowZoom(domElement, percentage) {
-        domElement.style['transform'] = 'scale(' + percentage + ')';
-        domElement.style['transform-origin'] = '0 0';
+        $('body section:not(.advantages-block)').css({
+            'zoom': percentage,
+        })
 
-        //domElement.style["zoom"] = percentage;
+        $('spline-viewer').css({
+            'scale': percentage,
+            'transform-origin': '0 0',
+        })
+
+        $('.advantage-header').css({
+            'zoom': percentage,
+            //'transform-origin': '0 0'
+        })
+
+        $('.advantage-trigger > span').css({
+            'zoom': percentage,
+            //'transform-origin': '0 0'
+        })
     }
 
     function hideSplineButton(splineInner) {
@@ -62,3 +75,42 @@ import {renderCatalog} from "./accessories/accessories-renderer.js";
         });
     }
 })();
+
+
+const photos = gsap.utils.toArray('.advantage-image-container:not(:first-child)');
+const details = gsap.utils.toArray('.advantage:not(:first-child)');
+
+gsap.set(photos, {opacity: 0});
+
+const allPhotos = gsap.utils.toArray('.advantage-image-container');
+
+const animation = gsap.to(photos, {
+    yPercent: 0,
+    duration: 1,
+    stagger: 1
+});
+
+ScrollTrigger.create({
+    trigger: '.advantages-block',
+    start: 'top top',
+    end: 'bottom bottom',
+    pin: '.image-section',
+    animation: animation,
+    scrub: true
+});
+
+details.forEach((detail, index)=> {
+    let headline = detail.querySelector('.advantage-trigger');
+    let animation = gsap.timeline()
+        .to(photos[index], {opacity:1})
+        .set(allPhotos[index], {autoAlpha:0})
+    ScrollTrigger.create({
+        trigger:headline,
+        start:'top 90%',
+        end:'top 60%',
+        animation:animation,
+        scrub:true,
+        markers:false
+    })
+})
+
