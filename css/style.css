@@ -63,7 +63,7 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-body section:not(.advantages-block) {
+body section:not(.advantages-block):not(.reel-block) {
     zoom: var(--zoom-factor);
 }
 
@@ -100,7 +100,7 @@ a:hover {
     color: var(--light-button-text);
 }
 
-.btn-glass {
+.glass-effect {
     background-color: #FFFFFF33;
     backdrop-filter: blur(10px);
 }
@@ -113,7 +113,7 @@ a:hover {
     color: var(--button-primary-text) !important;
 }
 
-.btn-glass span {
+.glass-effect span {
     color: var(--text-primary-d);
 }
 
@@ -425,13 +425,28 @@ spline-viewer {
 }
 
 .reel-block {
-    height: calc(100vh / var(--zoom-factor));
-    position: relative;
+    /*height: calc(500vh / var(--zoom-factor)) !important;*/
+    /*max-height: calc(500vh / var(--zoom-factor)) !important;*/
+    /*margin-right: calc(16px * var(--zoom-factor)) !important;*/
+    /*margin-left: calc(16px * var(--zoom-factor)) !important;*/
+    width: 100%;
+    max-width: 100%;
+
+    .reel-content-wrapper {
+        position: relative;
+    }
+
+    .pin-spacer {
+        width: 100% !important;
+        /*height: calc(100vh * var(--zoom-factor)) !important;*/
+    }
 
     .reel-video {
-        height: 100%;
+        height: 100vh;
+        width: 100%;
         object-fit: cover;
         display: block;
+        filter: brightness(0.3);
     }
 
     .ticker-wrap {
@@ -442,6 +457,8 @@ spline-viewer {
         white-space: nowrap;
         position: absolute;
         top: 24px;
+
+        zoom: var(--zoom-factor);
 
         z-index: 10;
     }
@@ -465,25 +482,39 @@ spline-viewer {
     .bottom-content-wrapper {
         position: absolute;
         bottom: 24px;
+        left: 0;
+        right: 0;
         padding: 0 24px;
         z-index: 100;
+        overflow: hidden;
+        zoom: var(--zoom-factor);
+
     }
 
     .reel-desc {
         color: var(--text-primary-d);
         width: 250px;
     }
-}
 
-.reel-block:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 1;
-    background: #00000099;
+    .reel-progress-bar {
+        height: 125px;
+        width: 3px;
+        border-radius: 10px;
+        position: absolute;
+
+        right: 24px;
+        top: 50%;
+        z-index: 1000;
+        transform: translateY(-50%);
+
+        zoom: var(--zoom-factor);
+    }
+
+    .reel-progress-thumb {
+        width: 100%;
+        border-radius: 10px;
+        background-color: var(--text-primary-d);
+    }
 }
 
 .accessories-block {
@@ -800,10 +831,10 @@ input[type="radio"]:checked::before {
         width: 50%;
         text-align: center;
 
-        .advantage-image{
+        .advantage-image {
             -webkit-filter: drop-shadow(0px 50px 50px rgba(0, 0, 0, 0.5));
             filter: drop-shadow(
-                0px 50px 50px rgba(0, 0, 0, 0.5)
+                    0px 50px 50px rgba(0, 0, 0, 0.5)
             );
         }
     }
