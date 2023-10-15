@@ -63,6 +63,10 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+body section:not(.advantages-block) {
+    zoom: var(--zoom-factor);
+}
+
 a {
     color: var(--accent-orange);
     text-decoration: underline 1px #BF554500;
@@ -190,7 +194,7 @@ a:hover {
     border-radius: 16px;
     position: absolute;
     top: 0;
-    z-index: -1;
+    z-index: 0;
 
     object-fit: cover;
 }
@@ -701,6 +705,12 @@ input[type="radio"]:checked::before {
     height: min-content;
     background-color: var(--block-bg);
 
+    .advantage-image {
+        height: 100%;
+        zoom: var(--zoom-factor);
+        object-fit: contain;
+    }
+
     .advantages-lead-container {
         gap: 16px;
         margin: calc(24px * var(--zoom-factor));
@@ -710,6 +720,7 @@ input[type="radio"]:checked::before {
 
     .advantages-lead-container span {
         text-align: left;
+        zoom: var(--zoom-factor);
     }
 
     .advantages-lead-container .text-t1-bold {
@@ -730,6 +741,8 @@ input[type="radio"]:checked::before {
         gap: 24px;
         align-items: flex-start;
         width: 500px;
+
+        zoom: var(--zoom-factor);
     }
 
     .advantage {
@@ -754,6 +767,7 @@ input[type="radio"]:checked::before {
 
     .advantage-trigger > span {
         width: 500px;
+        zoom: var(--zoom-factor);
     }
 
     .images-gallery {
@@ -785,6 +799,13 @@ input[type="radio"]:checked::before {
 
         width: 50%;
         text-align: center;
+
+        .advantage-image{
+            -webkit-filter: drop-shadow(0px 50px 50px rgba(0, 0, 0, 0.5));
+            filter: drop-shadow(
+                0px 50px 50px rgba(0, 0, 0, 0.5)
+            );
+        }
     }
 
     .text-section {
@@ -795,7 +816,7 @@ input[type="radio"]:checked::before {
         height: calc(100vh * var(--zoom-factor)) !important;
     }
 
-    .red-blur{
+    .red-blur {
         width: 100%;
         height: 975px;
         flex-shrink: 0;
