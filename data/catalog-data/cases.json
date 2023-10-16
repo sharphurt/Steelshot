@@ -1,0 +1,61 @@
+{
+  "collection-name": "cases",
+  "collection": [
+    {
+      "image": "./assets/accessories/bags/bags-1.png",
+      "name": "PhotoGear ProCase 920",
+      "price": "$4 780",
+      "available-colors": [
+        "#BF5545",
+        "#F0A443"
+      ],
+      "description": "Stylish bag in light milk color with leather inserts and colored lining. Convenient compartments for camera, lenses and accessories",
+      "technical": {
+        "size": "50х60х20",
+        "material": "Made of durable and waterproof nylon, with a soft and impact resistant liner to provide maximum protection for your gear from external damage and moisture"
+      }
+    },
+    {
+      "image": "./assets/accessories/bags/bags-2.png",
+      "name": "OptiCarry 550X",
+      "price": "$499,99",
+      "available-colors": [
+        "#BF5545",
+        "#F0A443"
+      ],
+      "description": "Bright bag with colorful accents for individuality, laptop compartment, moisture resistance",
+      "technical": {
+        "size": "80х110х35",
+        "material": "Made of reinforced nylon with a soft interior lining, this camera bag provides not only superior protection from bumps and scratches, but also comfort when carrying your gear"
+      }
+    },
+    {
+      "image": "./assets/accessories/bags/bags-3.png",
+      "name": "CamSafe Xpress 630",
+      "price": "$350",
+      "available-colors": [
+        "#BF5545",
+        "#F0A443"
+      ],
+      "description": "Sporty Compact. Lightweight and waterproof bag for active photographers.",
+      "technical": {
+        "size": "50х40х20",
+        "material": "Made of lightweight material, this camera bag provides reliable protection against bumps and drops, keeping your gear intact and safe during transportation"
+      }
+    },
+    {
+      "image": "./assets/accessories/bags/bags-4.png",
+      "name": "SnapGuard 7300E",
+      "price": "$500",
+      "available-colors": [
+        "#BF5545",
+        "#F0A443"
+      ],
+      "description": "Specialized bag for extreme shooting conditions. Durable materials, impact and moisture protection",
+      "technical": {
+        "size": "60х50х10",
+        "material": "Made from waterproof and durable polyester, this camera bag provides reliable protection from moisture and unexpected rain, allowing you to use your gear with confidence in all conditions."
+      }
+    }
+  ]
+}

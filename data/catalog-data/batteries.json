@@ -2,96 +2,28 @@
   "collection-name": "batteries",
   "collection": [
     {
-      "image": "accessories/lenses/lenses-1",
-      "name": "Lens FOS 229-37/38",
-      "type": "Telephoto auxiliary lens",
-      "available-colors": [
-        "#BF5545",
-        "#F0A443"
-      ],
-      "description": "Straps on top of a standard camera",
-      "properties": {
-        "focal-length": "200 mm",
-        "diaphragm": "f/2.8",
-        "optical-magnification": "2x",
-        "has-autofocus": "yes",
-        "image-stabilization": "yes",
-        "viewing-angle": "12"
-      },
-      "technical": {
-        "weight": "300 grams",
-        "compatibility": "Compatible with most cameras with a standard lens mount",
-        "materials": "High quality optical glasses, metal construction"
-      }
+      "image": "./assets/accessories/batteries/batteries-1.png",
+      "name": "EcoCharge LIX",
+      "price": "$29.99",
+      "description": "Optional rechargeable battery with fast charging for extended shooting. High capacity, compatible with various models"
     },
     {
-      "image": "accessories/lenses/lenses-2",
-      "name": "Lens FOS 229-37/38",
-      "type": "Telephoto auxiliary lens",
-      "available-colors": [
-        "#BF5545",
-        "#F0A443"
-      ],
-      "description": "Straps on top of a standard camera",
-      "properties": {
-        "focal-length": "200 mm",
-        "diaphragm": "f/2.8",
-        "optical-magnification": "2x",
-        "has-autofocus": "yes",
-        "image-stabilization": "yes",
-        "viewing-angle": "12"
-      },
-      "technical": {
-        "weight": "300 grams",
-        "compatibility": "Compatible with most cameras with a standard lens mount",
-        "materials": "High quality optical glasses, metal construction"
-      }
+      "image": "./assets/accessories/batteries/batteries-2.png",
+      "name": "UltraMax NiMH",
+      "price": "$49.99",
+      "description": "Extra battery with fast charging for extended shooting. It has a high capacity that allows you to shoot for long periods of time without having to replace it."
     },
     {
-      "image": "accessories/lenses/lenses-3",
-      "name": "Lens FOS 229-37/38",
-      "type": "Telephoto auxiliary lens",
-      "available-colors": [
-        "#BF5545",
-        "#F0A443"
-      ],
-      "description": "Straps on top of a standard camera",
-      "properties": {
-        "focal-length": "200 mm",
-        "diaphragm": "f/2.8",
-        "optical-magnification": "2x",
-        "has-autofocus": "yes",
-        "image-stabilization": "yes",
-        "viewing-angle": "12"
-      },
-      "technical": {
-        "weight": "300 grams",
-        "compatibility": "Compatible with most cameras with a standard lens mount",
-        "materials": "High quality optical glasses, metal construction"
-      }
+      "image": "./assets/accessories/batteries/batteries-3.png",
+      "name": "InfinityPlus LIX",
+      "price": "$460",
+      "description": "A set of universal spare batteries for various devices. Compatible with different cameras, long service life"
     },
     {
-      "image": "accessories/lenses/lenses-4",
-      "name": "Lens FOS 229-37/38",
-      "type": "Telephoto auxiliary lens",
-      "available-colors": [
-        "#BF5545",
-        "#F0A443"
-      ],
-      "description": "Straps on top of a standard camera",
-      "properties": {
-        "focal-length": "200 mm",
-        "diaphragm": "f/2.8",
-        "optical-magnification": "2x",
-        "has-autofocus": "yes",
-        "image-stabilization": "yes",
-        "viewing-angle": "12"
-      },
-      "technical": {
-        "weight": "300 grams",
-        "compatibility": "Compatible with most cameras with a standard lens mount",
-        "materials": "High quality optical glasses, metal construction"
-      }
+      "image": "./assets/accessories/batteries/batteries-4.png",
+      "name": "TurboCharge NiMH ",
+      "price": "$15",
+      "description": "Straps on top of a standard camera"
     }
   ]
 }

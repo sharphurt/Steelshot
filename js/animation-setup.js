@@ -96,9 +96,8 @@ export const reelBlockAnimation = () => {
         scrub: true,
         start: "top top",
         end: "bottom+=2000",
-      //  markers: true,
+        //  markers: true,
         onUpdate: (self) => {
-            console.log("progress:", self.progress)
             gsap.to('.reel-progress-thumb', {
                 'height': `${self.progress * 100}%`,
                 duration: 0.1
@@ -150,27 +149,64 @@ export const reelBlockAnimation = () => {
             })
         }
     });
+}
 
-    //
-    // gsap.timeline({
-    //     scrollTrigger: {
-    //         trigger: '.reel-block',
-    //         pin: true,
-    //         scrub: true,
-    //         start: "bottom bottom",
-    //         end: "-=500",
-    //         onEnter: () => gsap.set('.reel-block', {
-    //             position: 'absolute',
-    //             bottom: 0,
-    //
-    //             y: 0
-    //         })
-    //     }
-    // }).to('.reel-content-wrapper', {
-    //     marginRight: 16,
-    //     marginLeft: 16,
-    //     duration: 1,
-    // })
+export const slideInAnimation = (elementsSelector, direction, value, start, end) => {
+    const elements = gsap.utils.toArray(`${elementsSelector}`);
+
+    elements.forEach((element) => {
+        if (direction === 'left' || direction === 'right')
+            gsap.set(element, {
+                opacity: 0,
+                xPercent: value * ((direction === 'left') ? 1 : -1)
+            })
+
+        if (direction === 'top' || direction === 'bottom')
+            gsap.set(element, {
+                opacity: 0,
+                yPercent: value * ((direction === 'top') ? -1 : 1)
+            })
+
+        let enterAnimation = gsap.timeline()
+            .to(element, {
+                opacity: 1,
+                xPercent: 0,
+                yPercent: 0
+            })
+
+        ScrollTrigger.create({
+            trigger: element,
+            start: start,
+            end: end,
+            animation: enterAnimation,
+            scrub: true,
+            markers: false
+        })
+    })
+}
+
+export const opacityInAnimation = (elementsSelector, start, end) => {
+    const elements = gsap.utils.toArray(`${elementsSelector}`);
+
+    elements.forEach((eleemnt, index) => {
+        gsap.set(eleemnt, {
+            opacity: 0,
+        })
+
+        let enterAnimation = gsap.timeline()
+            .to(eleemnt, {
+                opacity: 1,
+            })
+
+        ScrollTrigger.create({
+            trigger: eleemnt,
+            start: start,
+            end: end,
+            animation: enterAnimation,
+            scrub: true,
+            markers: false
+        })
+    })
 }
 
 export const initializeLenis = () => {

@@ -1,13 +1,10 @@
-import {namesMapping} from "./accessories-loader.js";
-
-const createBaseItemHTML = (item) => {
-    return `
+const baseHTML = `
 <div class="item-card">
     <div class="image-header-container">
-        <img src=${item.image} width=340 height=340 alt="${item.name} image"/>
+        <img class="item-image" src="%image%" width=340 height=340 alt="%name% image"/>
         <div>
-            <span class="text-t1-bold">${item.name}</span>
-            <span class="text-t3">${item.type}</span>
+            <span class="item-name text-t1-bold">%name%</span>
+            <span class="item-price text-t1-bold">%price%</span>
         </div>
     </div>
     <div class="buttons-container">
@@ -21,15 +18,16 @@ const createBaseItemHTML = (item) => {
         </div>        
     </div>
     <div class="divider"></div>
-    <span class="text-t3 item-description">${item.description}</span>
-    <div class="divider"></div>
+    <span class="item-type text-t3">%type%</span>
+    <span class="text-t3 item-description">%description%</span>
+    <div class="divider description-divider"></div>
     <div class="properties-info-container"></div>
-    <div class="divider"></div>
+    <div class="divider properties-divider"></div>
     <div class="tech-info-wrapper collapsed">
         <div class="tech-info-header">
             <span class="text-t3">Technical information</span>
             <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="CaretDown">
+                <g id="caretDown">
                     <path id="Vector" d="M11.6845 6.05953L7.30953 10.4345C7.2689 10.4752 7.22065 10.5075 7.16754 10.5295C7.11442 10.5515 7.05749 10.5628 7 10.5628C6.9425 10.5628 6.88557 10.5515 6.83246 10.5295C6.77935 10.5075 6.7311 10.4752 6.69047 10.4345L2.31547 6.05953C2.23338 5.97744 2.18726 5.8661 2.18726 5.75C2.18726 5.6339 2.23338 5.52256 2.31547 5.44047C2.39756 5.35837 2.5089 5.31226 2.625 5.31226C2.7411 5.31226 2.85244 5.35837 2.93453 5.44047L7 9.50648L11.0655 5.44047C11.1061 5.39982 11.1544 5.36758 11.2075 5.34558C11.2606 5.32358 11.3175 5.31226 11.375 5.31226C11.4325 5.31226 11.4894 5.32358 11.5425 5.34558C11.5956 5.36758 11.6439 5.39982 11.6845 5.44047C11.7252 5.48112 11.7574 5.52937 11.7794 5.58248C11.8014 5.63559 11.8127 5.69251 11.8127 5.75C11.8127 5.80748 11.8014 5.86441 11.7794 5.91752C11.7574 5.97063 11.7252 6.01888 11.6845 6.05953Z" fill="#1C1C1C"/>
                 </g>    
             </svg>
@@ -40,11 +38,49 @@ const createBaseItemHTML = (item) => {
         <span class="text-t3">Show more</span>
     </button>
 </div>`
+
+const hideElement = (html, property) => {
+   return html.replaceAll(`${property}`, `${property} hidden`)
 }
 
+const setBaseInfo = (baseHTML, item) => {
+    let result = baseHTML;
+
+    if (item['image'] !== undefined)
+        result = result.replaceAll('%image%', item.image)
+    else
+        result = hideElement(result, 'item-image')
+
+    if (item['name'] !== undefined)
+        result = result.replaceAll('%name%', item.name)
+    else
+        result = hideElement(result, 'item-name')
+
+    if (item['price'] !== undefined)
+        result = result.replaceAll('%price%', item.price)
+    else
+        result = hideElement(result, 'item-price')
+
+    if (item['type'] !== undefined)
+        result = result.replaceAll('%type%', item.type)
+    else
+        result = hideElement(result, 'item-type')
+
+    if (item['description'] !== undefined)
+        result = result.replaceAll('%description%', item.description)
+    else
+        result = hideElement(result, 'item-description')
+
+    return result;
+}
 
 const setTechnicalInfo = (baseHTML, item) => {
     const techInfo = item['technical'];
+    if (techInfo === undefined) {
+        return hideElement(baseHTML, 'tech-info-container');
+
+    }
+
     const DOMItem = document.createElement('div');
     DOMItem.innerHTML = baseHTML;
     const container = $(DOMItem).find('.tech-info-container');
@@ -66,6 +102,11 @@ const setTechnicalInfo = (baseHTML, item) => {
 
 const setPropertiesInfo = (baseHTML, item) => {
     const properties = item['properties'];
+    if (properties === undefined) {
+        let result = hideElement(baseHTML, 'properties-info-container');
+        return hideElement(result, 'properties-divider')
+    }
+
     const DOMItem = document.createElement('div');
     DOMItem.innerHTML = baseHTML;
     const container = $(DOMItem).find('.properties-info-container');
@@ -88,6 +129,9 @@ const setPropertiesInfo = (baseHTML, item) => {
 
 const setColorsSelector = (baseHTML, item) => {
     const colors = item['available-colors'];
+    if (colors === undefined)
+        return hideElement(baseHTML, 'color-selector')
+
     const DOMItem = document.createElement('div');
     DOMItem.innerHTML = baseHTML;
     const container = $(DOMItem).find('.color-selector');
@@ -103,7 +147,7 @@ const setColorsSelector = (baseHTML, item) => {
 }
 
 const getItemHTML = (item) => {
-    let html = createBaseItemHTML(item);
+    let html = setBaseInfo(baseHTML, item);
     html = setColorsSelector(html, item);
     html = setPropertiesInfo(html, item);
     html = setTechnicalInfo(html, item);
@@ -111,7 +155,7 @@ const getItemHTML = (item) => {
     return document.createElement('div').innerHTML = html;
 }
 
-export const renderCatalog = (catalogElements, parentElement) => {
+const renderCatalog = (catalogElements, parentElement) => {
     catalogElements.forEach(function (e) {
         parentElement.append(getItemHTML(e));
     })

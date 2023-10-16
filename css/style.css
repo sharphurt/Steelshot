@@ -409,7 +409,7 @@ a:hover {
 }
 
 spline-viewer {
-    height: calc(1500px * var(--zoom-factor));
+    height: calc(1000px * var(--zoom-factor));
     max-width: 1440px;
     width: 1440px;
 }
@@ -518,7 +518,7 @@ spline-viewer {
 }
 
 .accessories-block {
-    height: min-content;
+    height: calc(700px * var(--zoom-factor));
 
     .accessories-header {
         margin-left: 253px;
@@ -528,6 +528,7 @@ spline-viewer {
     }
 
     .wrapper {
+        height: 100%;
         gap: 16px;
         padding-left: 16px;
     }
@@ -540,7 +541,7 @@ spline-viewer {
     .slider-area {
         width: calc(100% - 16.5%);
         overflow-x: scroll;
-        height: min-content;
+        height: 100%;
         gap: 16px;
         padding-bottom: 70px;
 
@@ -607,6 +608,7 @@ spline-viewer {
 
     .image-header-container img {
         border-radius: 16px;
+        border: 2px solid rgba(142, 142, 142, 0.50);
     }
 
     .image-header-container div {
@@ -640,6 +642,18 @@ spline-viewer {
         background-color: var(--border);
     }
 
+    .item-price {
+        color: var(--text-secondary);
+    }
+
+    .item-type {
+        color: var(--text-secondary);
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
     .item-description {
         width: 100%;
     }
@@ -671,6 +685,32 @@ spline-viewer {
         align-items: flex-start;
         align-self: stretch;
         gap: 12px;
+        overflow: hidden;
+    }
+
+    .tech-info-wrapper .tech-info-container {
+        max-height: 200px;
+        transition: max-height 0.25s ease-in;
+    }
+
+    .tech-info-wrapper.collapsed .tech-info-container {
+        max-height: 0;
+        transition: max-height 0.25s ease-out;
+    }
+
+    .tech-info-wrapper.collapsed #caretDown {
+        transform: rotate(0deg);
+        transition: transform 0.25s ease-out;
+
+        transform-origin: 50% 50%;
+    }
+
+    .tech-info-wrapper #caretDown {
+        transform: rotate(180deg);
+        transition: transform 0.25s ease-out;
+
+
+        transform-origin: 50% 50%;
     }
 
     .tech-info-container {
@@ -692,6 +732,8 @@ spline-viewer {
         display: block;
         width: 160px;
     }
+
+
 }
 
 .color-selector input[type="radio"] {

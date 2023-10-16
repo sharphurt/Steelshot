@@ -1,7 +1,5 @@
-import {getJSONPromise} from "./catalog-repository.js";
-
-export const catalogs = {}
-export let namesMapping = {}
+const catalogs = {}
+let namesMapping = {}
 
 const loadCatalogs = (names, callback) => {
     const promises = [];
@@ -48,7 +46,7 @@ const enumerateCatalogs = () => {
     })
 }
 
-export const loadAllData = (catalogNames, callback) => {
+const loadAllData = (catalogNames, callback) => {
     const internalCallback = function () {
         if (!isObjectEmpty(catalogs) && !isObjectEmpty(namesMapping)) {
             callback();

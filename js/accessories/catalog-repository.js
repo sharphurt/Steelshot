@@ -1,4 +1,4 @@
-export function getJSONPromise(filename) {
+function getJSONPromise(filename) {
     return $.getJSON(`data/catalog-data/${filename}.json`);
 }
 

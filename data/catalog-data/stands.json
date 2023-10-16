@@ -2,95 +2,63 @@
   "collection-name": "stands",
   "collection": [
     {
-      "image": "accessories/lenses/lenses-1",
-      "name": "Lens FOS 229-37/38",
-      "type": "Telephoto auxiliary lens",
+      "image": "./assets/accessories/stands/stands-1.png",
+      "name": "FlexiPod X11",
+      "price": "$20",
+      "type": "Lightweight and mobile tripod",
       "available-colors": [
         "#BF5545",
         "#F0A443"
       ],
-      "description": "Straps on top of a standard camera",
-      "properties": {
-        "focal-length": "200 mm",
-        "diaphragm": "f/2.8",
-        "optical-magnification": "2x",
-        "has-autofocus": "yes",
-        "image-stabilization": "yes",
-        "viewing-angle": "12"
-      },
+      "description": "Compact tripod for shooting on the go. Specifications: Adjustable legs, light weight.",
       "technical": {
-        "weight": "300 grams",
-        "compatibility": "Compatible with most cameras with a standard lens mount",
-        "materials": "High quality optical glasses, metal construction"
+        "weight": "1 488 grams",
+        "material": "The material for the compact tripod for shooting on the go consists of aluminum. This material provides light weight and good durability, making it easy to carry the tripod and hold the camera steady while shooting."
       }
     },
     {
-      "image": "accessories/lenses/lenses-2",
-      "name": "Lens FOS 229-37/38",
-      "type": "Telephoto auxiliary lens",
+      "image": "./assets/accessories/stands/stands-2.png",
+      "name": "UltraTripod S90",
+      "price": "$39",
+      "type": "Flexible Octopus",
       "available-colors": [
         "#BF5545",
         "#F0A443"
       ],
-      "description": "Straps on top of a standard camera",
-      "properties": {
-        "focal-length": "200 mm",
-        "diaphragm": "f/2.8",
-        "optical-magnification": "2x",
-        "has-autofocus": "yes",
-        "image-stabilization": "yes",
-        "viewing-angle": "12"
-      },
+      "description": "Flexible tripod for non-standard angles. Flexible legs, easy use.",
       "technical": {
-        "weight": "300 grams",
-        "compatibility": "Compatible with most cameras with a standard lens mount",
-        "materials": "High quality optical glasses, metal construction"
+        "weight": "500 grams",
+        "material": "It has legs made of rubber-coated and silicone material that provides flexibility. This allows you to fix the tripod on various surfaces, such as tree branches or railings, and create unusual angles for shooting."
       }
     },
     {
-      "image": "accessories/lenses/lenses-3",
-      "name": "Lens FOS 229-37/38",
-      "type": "Telephoto auxiliary lens",
+      "image": "./assets/accessories/stands/stands-3.png",
+      "name": "ProStance X1",
+      "price": "$50",
+      "type": "Minimum stand",
       "available-colors": [
         "#BF5545",
         "#F0A443"
       ],
-      "description": "Straps on top of a standard camera",
-      "properties": {
-        "focal-length": "200 mm",
-        "diaphragm": "f/2.8",
-        "optical-magnification": "2x",
-        "has-autofocus": "yes",
-        "image-stabilization": "yes",
-        "viewing-angle": "12"
-      },
+      "description": "A compact stand for shooting at home. Stable table mount and minimalist design that blends in perfectly with any interior.",
       "technical": {
-        "weight": "300 grams",
-        "compatibility": "Compatible with most cameras with a standard lens mount",
-        "materials": "High quality optical glasses, metal construction"
+        "weight": "320 grams",
+        "material": "It is made of plastic or metal. It is sturdy and resistant to the table to prevent the camera from falling while shooting."
       }
     },
     {
-      "image": "accessories/lenses/lenses-4",
-      "name": "Lens FOS 229-37/38",
-      "type": "Telephoto auxiliary lens",
+      "image": "./assets/accessories/stands/stands-4.png",
+      "name": "CamFlex 340T",
+      "price": "$99.99",
+      "type": "Professional stability",
       "available-colors": [
         "#BF5545",
         "#F0A443"
       ],
-      "description": "Straps on top of a standard camera",
-      "properties": {
-        "focal-length": "200 mm",
-        "diaphragm": "f/2.8",
-        "optical-magnification": "2x",
-        "has-autofocus": "yes",
-        "image-stabilization": "yes",
-        "viewing-angle": "12"
-      },
+      "description": "A tripod with high stability for professional shooting. Adjustable height, wind resistance, durable materials, high stability.",
       "technical": {
-        "weight": "300 grams",
-        "compatibility": "Compatible with most cameras with a standard lens mount",
-        "materials": "High quality optical glasses, metal construction"
+        "weight": "1 260 gram",
+        "material": "Made of durable materials, aluminum and magnesium alloy. The tripod legs have adjustable height for different shooting conditions."
       }
     }
   ]

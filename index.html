@@ -18,7 +18,11 @@
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
 
-    <script type="module" src="js/accessories/accessories-loader.js"></script>
+    <script type="application/javascript" src="js/accessories/catalog-repository.js"></script>
+    <script type="application/javascript" src="js/accessories/accessories-loader.js"></script>
+    <script type="application/javascript" src="js/accessories/accessories-renderer.js"></script>
+    <script type="application/javascript" src="js/accessories/accessories-controller.js"></script>
+
     <script type="module" src="js/animation-setup.js"></script>
     <script type="module" src="js/script.js"></script>
 </head>
@@ -70,7 +74,7 @@
     <!--    <img class="main-image" src="assets/main-image.png" width="1408" height="809" alt=""/>-->
     <video class="main-image" src="assets/lenses.mp4" width="1408" height="809" autoplay muted loop></video>
 </section>
-<section class="typography-block">
+<section class="typography-block promo-block">
     <div class="large-lines-container d-flex flex-column">
         <span class="text-h1 text-nowrap">IN THE WORLD</span>
         <span class="text-h1 text-nowrap">CAMERA IS A WORK OF ART</span>
@@ -96,7 +100,7 @@ of stunning photographs</span>
                 <span class="text-t3">Shop now</span>
             </button>
         </div>
-        <img src="assets/watch-cameras.png" width="406" height="500" alt="">
+        <img class="nav-card-image" src="assets/watch-cameras.png" width="406" height="500" alt="">
         <div class="bottom-content-wrapper d-flex flex-row justify-content-between align-items-center">
             <span class="card-header text-h2">WATCH CAMERAS</span>
             <button class="to-section-btn d-flex">
@@ -129,7 +133,7 @@ of stunning photographs</span>
                 </button>
             </div>
         </div>
-        <img src="assets/view-results.png" width="445" alt="">
+        <img class="nav-card-image" src="assets/view-results.png" width="445" alt="">
         <div class="bottom-content-wrapper d-flex flex-row justify-content-between align-items-end">
             <span class="card-header text-h2">VIEW CAMERA ADVANTAGES</span>
             <button class="to-section-btn d-flex">
@@ -145,7 +149,7 @@ of stunning photographs</span>
 
 <!--Features block-->
 <section class="func-header-block d-flex flex-column justify-content-between">
-    <div class="large-header-lines-container d-flex flex-column">
+    <div class="large-lines-container d-flex flex-column">
         <span class="text-h1 text-nowrap">FUNCTIONALITY</span>
         <span class="text-h1 text-nowrap"><span style="color: #CACACA">AND</span> FEATURES</span>
     </div>
@@ -180,8 +184,8 @@ of stunning photographs</span>
     </div>
     <div class="wireless-connectivity">
         <div class="feature-descr-wrapper d-flex flex-column">
-            <span class="text-t1-bold">Video recording</span>
-            <span class="text-t3">Record professional-quality videos</span>
+            <span class="text-t1-bold">Wireless connectivity</span>
+            <span class="text-t3">Share photos in real-time</span>
         </div>
     </div>
 </section>
@@ -280,8 +284,8 @@ of stunning photographs</span>
 
 <!--Carousel block-->
 <!--TODO: Blur on images-->
-<spline-viewer id="spline-viewer" loading-anim
-               url="https://prod.spline.design/PtW4K70yK1VpNrpc/scene.splinecode"></spline-viewer>
+<spline-viewer id="spline-viewer" loading-anim url="./assets/carousel.splinecode"></spline-viewer>
+
 
 <!--Reel block-->
 <section class="reel-block">
@@ -318,7 +322,7 @@ of stunning photographs</span>
 </section>
 
 <!--Accessories-->
-<section class="typography-block">
+<section class="typography-block accessories-block-header">
     <div class="large-lines-container d-flex flex-column">
         <span class="text-h1 text-nowrap">CHOOSE YOUR CAMERA</span>
         <span class="text-h1 text-nowrap">AND THE SUITABLE</span>
@@ -332,25 +336,25 @@ of stunning photographs</span>
     <div class="wrapper d-flex flex-row">
         <div class="navigation-container d-flex flex-column align-items-start">
             <div class="tab-btn-wrapper">
-                <button class="tab-btn active tab-lenses">
+                <button class="tab-btn active tab-lenses" onclick="onTabButtonClick('lenses')">
                     <span>Lenses</span>
                 </button>
                 <span class="tab-descr text-t3">A variety of lenses for different types of shots, allowing you to bring any photographic idea to life</span>
             </div>
             <div class="tab-btn-wrapper">
-                <button class="tab-btn tab-cases">
+                <button class="tab-btn tab-cases" onclick="onTabButtonClick('cases')">
                     <span>Bags and Cases</span>
                 </button>
                 <span class="tab-descr text-t3">Stylish and functional accessories for carrying your camera, providing both style and protection</span>
             </div>
             <div class="tab-btn-wrapper">
-                <button class="tab-btn tab-stands">
+                <button class="tab-btn tab-stands" onclick="onTabButtonClick('stands')">
                     <span>Stands and Tripods</span>
                 </button>
                 <span class="tab-descr text-t3">Boost the stability of your shots with high-quality stands and tripods</span>
             </div>
             <div class="tab-btn-wrapper">
-                <button class="tab-btn tab-batteries">
+                <button class="tab-btn tab-batteries" onclick="onTabButtonClick('batteries')">
                     <span>Extra Batteries</span>
                 </button>
                 <span class="tab-descr text-t3">Never run out of power in the most crucial moments, thanks to our spare batteries</span>
