@@ -77,8 +77,7 @@ const setBaseInfo = (baseHTML, item) => {
 const setTechnicalInfo = (baseHTML, item) => {
     const techInfo = item['technical'];
     if (techInfo === undefined) {
-        return hideElement(baseHTML, 'tech-info-container');
-
+        return hideElement(baseHTML, 'tech-info-wrapper');
     }
 
     const DOMItem = document.createElement('div');
