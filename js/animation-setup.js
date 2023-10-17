@@ -151,7 +151,7 @@ export const reelBlockAnimation = () => {
     });
 }
 
-export const slideInAnimation = (elementsSelector, direction, value, start, end) => {
+export const slideInAnimation = (elementsSelector, direction, value, start, delay) => {
     const elements = gsap.utils.toArray(`${elementsSelector}`);
 
     elements.forEach((element) => {
@@ -171,15 +171,16 @@ export const slideInAnimation = (elementsSelector, direction, value, start, end)
             .to(element, {
                 opacity: 1,
                 xPercent: 0,
-                yPercent: 0
+                yPercent: 0,
+                direction: 0.5,
+                delay: delay
             })
 
         ScrollTrigger.create({
             trigger: element,
             start: start,
-            end: end,
             animation: enterAnimation,
-            scrub: true,
+            // scrub: true,
             markers: false
         })
     })
