@@ -6,8 +6,6 @@ import {
     slideInAnimation
 } from "./animation-setup.js";
 
-let splineLoaded = false;
-
 const initializeWindow = () => {
     var viewPort = GetWindowViewPort();
     const zoom = viewPort.width / 1440;
@@ -67,12 +65,7 @@ const initializeAnimations = () => {
     // opacityInAnimation('.accessories-block-header .desc-text-container', 'bottom+=4600', 'bottom+=5100');
 }
 
-const onSplineLoaded = () => {
-    splineLoaded = true;
-}
-
-
-(function () {
+export const onPageLoaded = () => {
     const splineViewerInner = document.querySelector('spline-viewer').shadowRoot;
     initializeWindow();
 
@@ -85,4 +78,4 @@ const onSplineLoaded = () => {
 
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     initializeAnimations();
-}());
+}

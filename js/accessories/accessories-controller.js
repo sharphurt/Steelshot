@@ -2,7 +2,6 @@ const initializeAccessoriesController = () => {
     const catalogContainer = $('.slider-area')
 
     loadAllData(['lenses', 'cases', 'stands', 'batteries'], function () {
-        console.log(catalogs)
         loadTab('lenses')
     })
 }

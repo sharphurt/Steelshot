@@ -729,8 +729,11 @@ spline-viewer {
         transform: rotate(180deg);
         transition: transform 0.25s ease-out;
 
-
         transform-origin: 50% 50%;
+    }
+
+    .tech-info-header {
+        cursor: pointer;
     }
 
     .tech-info-container {

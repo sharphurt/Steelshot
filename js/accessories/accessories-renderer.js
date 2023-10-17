@@ -110,7 +110,6 @@ const setPropertiesInfo = (baseHTML, item) => {
     DOMItem.innerHTML = baseHTML;
     const container = $(DOMItem).find('.properties-info-container');
 
-    console.log(Object.entries(properties))
     Object.entries(properties).forEach(function (e) {
         const readableName = namesMapping[e[0]];
         const value = e[1];
