@@ -209,23 +209,3 @@ export const opacityInAnimation = (elementsSelector, start, end) => {
         })
     })
 }
-
-export const initializeLenis = () => {
-    const lenis = new Lenis({
-        lerp: 0.1,
-        infinite: false,
-    })
-
-    new ScrollSnap(lenis, {snapType: ''})
-
-    lenis.on("scroll", ({scroll, limit}) => {
-        //   console.log({scroll, limit});
-    });
-
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-}

@@ -1,43 +1,16 @@
 import {
     advantagesScrollAnimation,
     GetWindowViewPort,
-    initializeLenis,
     reelBlockAnimation,
     slideInAnimation
 } from "./animation-setup.js";
-
-const initializeWindow = () => {
-    var viewPort = GetWindowViewPort();
-    const zoom = viewPort.width / 1440;
-    modifyWindowZoom(document.body, zoom);
-    //
-    // let root = document.documentElement;
-    //
-    // root.style.setProperty('--zoom-factor', zoom);
-}
-
-const modifyWindowZoom = (domElement, percentage) => {
-    $('spline-viewer').css({
-        'transform': `scale(${percentage})`,
-        'transform-origin': '0 0',
-    })
-}
-
-const hideSplineButton = (splineInner) => {
-    splineInner.querySelector('#logo').remove();
-}
-
-const scaleToFit = (splineInner) => {
-    splineInner.querySelector('#container').style['transform'] = 'scale(0.5)';
-    splineInner.querySelector('#container').style['transform-origin'] = '0 0';
-}
-
-const hideVideoControls = () => {
-    const videos = $("video");
-    $.each(videos, function () {
-        this.controls = false;
-    });
-}
+import {
+    hideSplineButton,
+    hideVideoControls,
+    initializeLenis,
+    initializeWindow,
+    scaleToFit
+} from "./common.js";
 
 const initializeAnimations = () => {
     initializeLenis();
@@ -66,7 +39,9 @@ const initializeAnimations = () => {
 }
 
 export const onPageLoaded = () => {
-    const splineViewerInner = document.querySelector('spline-viewer').shadowRoot;
+    console.log("dsd")
+
+    const splineViewerInner = document.querySelector('#spline-viewer').shadowRoot;
     initializeWindow();
 
     // sorry spline(

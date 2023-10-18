@@ -16,6 +16,12 @@ export class ScrollSnap {
     }
 
     initElements() {
+        if (Array.from(
+            document.body.querySelectorAll(
+                '.scroll-snap-align:not([scroll-snap-align="none"])'
+            ).length === 0))
+            return
+
         this.elements = Array.from(
             document.body.querySelectorAll(
                 '.scroll-snap-align:not([scroll-snap-align="none"])'
@@ -46,6 +52,9 @@ export class ScrollSnap {
         return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
     }
     onScroll = ({velocity}) => {
+        if (this.elements === undefined)
+            return;
+
         if (Math.abs(velocity) > this.maxVelocity)
             this.maxVelocity = Math.abs(velocity)
 
