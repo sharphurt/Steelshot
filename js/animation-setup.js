@@ -172,7 +172,7 @@ export const slideInAnimation = (elementsSelector, direction, value, start, dela
                 opacity: 1,
                 xPercent: 0,
                 yPercent: 0,
-                direction: 0.5,
+                duration: 0.5,
                 delay: delay
             })
 

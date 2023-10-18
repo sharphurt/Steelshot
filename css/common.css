@@ -96,6 +96,8 @@ a:hover.no-underline {
     gap: 12px;
 }
 
+
+
 .large-btn span {
     color: var(--light-button-text);
 }
@@ -132,8 +134,13 @@ a:hover.no-underline {
     /*width: min-content;*/
 
     background-color: var(--light-button-bg);
+    transition: background-color 0.15s ease-in;
     border: none;
     border-radius: 5px;
+}
+
+.small-btn:hover {
+    background-color: #454545 !important;
 }
 
 .small-btn span {
