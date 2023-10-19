@@ -6,41 +6,23 @@ import {
 } from "./animation-setup.js";
 import {
     hideSplineButton,
-    hideVideoControls,
+    hideVideoControls, initializeAnimationInChecker,
     initializeLenis,
     initializeWindow,
-    scaleToFit
+    scaleToFit,
+    zoom
 } from "./common.js";
 
 const initializeAnimations = () => {
+    initializeAnimationInChecker();
     initializeLenis();
     advantagesScrollAnimation();
     reelBlockAnimation();
-    slideInAnimation('.promo-block .large-lines-container span:nth-child(1)', 'left', 6, 'center-=590', 0);
-    slideInAnimation('.promo-block .large-lines-container span:nth-child(2)', 'left', 6, 'center-=600', 0.1);
-    slideInAnimation('.promo-block .large-lines-container span:nth-child(3)', 'left', 6, 'center-=610', 0.2);
 
-    slideInAnimation('.promo-block .desc-text-container span:nth-child(1)', 'right', 6, 'center-=620', 0.1);
-    slideInAnimation('.promo-block .desc-text-container span:nth-child(2)', 'right', 6, 'center-=620', 0.2);
-
-    slideInAnimation('.nav-card', 'bottom', 20, 'top-=500', 0);
-    slideInAnimation('.top-content-wrapper', 'bottom', 6, 'top-=500', 0);
-    slideInAnimation('.nav-card-image', 'bottom', 6, 'top-=500', 'center+=100');
-    slideInAnimation('.bottom-content-wrapper', 'bottom', 6, 'top-=500', 'center-=50');
-
-    slideInAnimation('.func-header-block .large-lines-container span', 'left', 6, 'center-=300', 0);
-    slideInAnimation('.func-header-block .desc-text-container span', 'right', 6, 'center-=300', 0);
-
-    slideInAnimation('.features-block div', 'bottom', 20, 'bottom+=50', 0);
-
-    slideInAnimation('.accessories-block-header .large-lines-container span', 'left', 6, 'bottom+=4150', 0);
-    slideInAnimation('.accessories-block-header .desc-text-container', 'right', 6, 'bottom+=4200', 0);
-    // opacityInAnimation('.accessories-block-header .desc-text-container', 'bottom+=4600', 'bottom+=5100');
+    animateCursor();
 }
 
 export const onPageLoaded = () => {
-    console.log("dsd")
-
     const splineViewerInner = document.querySelector('#spline-viewer').shadowRoot;
     initializeWindow();
 
@@ -53,4 +35,40 @@ export const onPageLoaded = () => {
 
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     initializeAnimations();
+
 }
+
+const ball = document.querySelector(".gradient-cursor");
+
+let mouseX = 0;
+let mouseY = 0;
+
+let ballX = 0;
+let ballY = 0;
+
+let speed = 0.1;
+
+const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+
+function animateCursor() {
+    var block = $('.typography-block');
+
+    var relX = (mouseX - block.offset().left) / zoom
+    var relY = clamp((mouseY - block.offset().top) / zoom, 0, block.height());
+
+    let distX = relX - ballX;
+    let distY = relY - ballY;
+
+    ballX = (ballX + (distX * speed));
+    ballY = (ballY + (distY * speed));
+
+    ball.style.left = ballX + "px";
+    ball.style.top = ballY + "px";
+
+    requestAnimationFrame(animateCursor);
+}
+
+document.addEventListener("mousemove", function (event) {
+    mouseX = event.pageX;
+    mouseY = event.pageY;
+})

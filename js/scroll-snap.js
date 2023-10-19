@@ -16,17 +16,11 @@ export class ScrollSnap {
     }
 
     initElements() {
-        if (Array.from(
-            document.body.querySelectorAll(
-                '.scroll-snap-align:not([scroll-snap-align="none"])'
-            ).length === 0))
-            return
+        if (document.body.querySelectorAll('.scroll-snap-align').length === 0) {
+            return;
+        }
 
-        this.elements = Array.from(
-            document.body.querySelectorAll(
-                '.scroll-snap-align:not([scroll-snap-align="none"])'
-            )
-        ).map((element, index) => {
+        this.elements = Array.from(document.body.querySelectorAll('.scroll-snap-align')).map((element, index) => {
             let snapAlign = element.getAttribute('scroll-snap-align')
             if (!['start', 'center', 'end', 'none'].includes(snapAlign)) {
                 snapAlign = 'start' // default value: start
@@ -38,36 +32,25 @@ export class ScrollSnap {
             // }
 
             return {
-                element,
-                snapAlign,
-                index
+                element, snapAlign, index
                 // snapStop,
             }
         })
-
-        console.log(this.elements)
     }
 
     map = (value, in_min, in_max, out_min, out_max) => {
         return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
     }
     onScroll = ({velocity}) => {
-        if (this.elements === undefined)
-            return;
+        if (this.elements === undefined) return;
 
-        if (Math.abs(velocity) > this.maxVelocity)
-            this.maxVelocity = Math.abs(velocity)
+        if (Math.abs(velocity) > this.maxVelocity) this.maxVelocity = Math.abs(velocity)
 
-        if (Math.abs(velocity) > this.maxVelocity / 3)
-            return
+        if (Math.abs(velocity) > this.maxVelocity / 3) return
 
-        const wrapperRect =
-            {
-                left: 0,
-                top: 0,
-                width: window.innerWidth,
-                height: window.innerHeight,
-            }
+        const wrapperRect = {
+            left: 0, top: 0, width: window.innerWidth, height: window.innerHeight,
+        }
         const wrapperPos = this.isHorizontal ? wrapperRect.left : wrapperRect.top
 
         // find the closest element according to the scroll position
@@ -77,13 +60,9 @@ export class ScrollSnap {
 
                 let offset = 0
                 if ('end' === snapAlign) {
-                    offset = this.isHorizontal
-                        ? elRect.width - wrapperRect.width
-                        : elRect.height - wrapperRect.height
+                    offset = this.isHorizontal ? elRect.width - wrapperRect.width : elRect.height - wrapperRect.height
                 } else if ('center' === snapAlign) {
-                    offset = this.isHorizontal
-                        ? (elRect.width - wrapperRect.width) / 2
-                        : (elRect.height - wrapperRect.height) / 2
+                    offset = this.isHorizontal ? (elRect.width - wrapperRect.width) / 2 : (elRect.height - wrapperRect.height) / 2
                 }
 
                 const elPos = this.isHorizontal ? elRect.left : elRect.top
@@ -106,16 +85,12 @@ export class ScrollSnap {
             return
         }
 
-        if (element.index === 0 && velocity < 0)
-            return;
+        if (element.index === 0 && velocity < 0) return;
 
-        if (element.index === 5 && velocity > 0)
-            return;
+        if (element.index === 5 && velocity > 0) return;
 
         this.lenis.scrollTo(element.element, {
-            offset: element.offset,
-            duration: 1,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+            offset: element.offset, duration: 1, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
         })
     }
 }

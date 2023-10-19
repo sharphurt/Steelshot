@@ -11,7 +11,7 @@
 .main-screen {
     padding: 0 16px;
     position: relative;
-    height: 60vh;
+    height: calc(100vh / var(--zoom-factor) - 100px);
 }
 
 .video-container {
@@ -62,6 +62,7 @@
 .typography-block {
     display: flex;
     flex-direction: column;
+    position: relative;
     gap: 30px;
     padding: 100px 0 100px 257px;
 }
@@ -87,29 +88,92 @@
     width: 320px;
 }
 
+.gradient-cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 285px;
+    background: #ffffff;
+    z-index: 1000;
+    transition: width 0.4s ease-out, height 0.4s ease-out;
+
+    filter: blur(50px);
+}
+
+.typography-block {
+  //  overflow: hidden;
+}
+
+.typography-block:hover .gradient-cursor {
+    width: 200px;
+    height: 200px;
+
+    transition: width 0.4s ease-out, height 0.4s ease-out;
+}
+
+
 .nav-block {
-    padding: 0 16px;
+    padding: 16px;
     gap: 16px;
 }
 
 .nav-card {
     background-color: var(--accent-black);
-    height: calc(100vh / var(--zoom-factor));
+    height: calc(100vh / var(--zoom-factor) - 32px);
 
     width: 100%;
     align-items: center;
     border-radius: 16px;
     padding: 10px;
+
+    cursor: pointer;
 }
 
 .nav-card img {
-    height: 45vh;
+    transition: transform 0.2s ease-in;
+}
+
+.nav-card:hover img {
+    transition: transform 0.2s ease-out;
+    transform: translateY(-6px) !important;
+}
+
+.nav-card .to-section-btn {
+    transition: background-color 0.2s ease-in;
+}
+
+.nav-card:hover .to-section-btn {
+    transition: background-color 0.2s ease-in;
+    background-color: #CACACA;
+}
+
+.nav-card .bottom-content-wrapper {
+    transition: transform 0.2s ease-in;
+}
+
+.nav-card:hover .bottom-content-wrapper {
+    transition: transform 0.2s ease-out;
+    transform: translateY(-6px) !important;
+}
+
+.nav-card img {
+    height: 65%;
     width: 100%;
     object-fit: contain;
     -webkit-filter: drop-shadow(0px 50px 50px rgba(0, 0, 0, 0.5));
     filter: drop-shadow(
             0px 50px 50px rgba(0, 0, 0, 0.5)
     );
+
+    transition: transform 0.4s ease-in;
+    transform: scale(1) translateY(0) !important;
+}
+
+.to-twitter svg, .to-instagram svg {
+    pointer-events: none;
 }
 
 .watch-cameras .nav-card-image {

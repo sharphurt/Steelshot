@@ -12,13 +12,12 @@ export const modifyWindowZoom = (percentage) => {
     root.style.setProperty('--zoom-factor', percentage);
 
     $('spline-viewer').css({
-        'transform': `scale(${percentage})`,
-        'transform-origin': '0 0',
+        'transform': `scale(${percentage})`, 'transform-origin': '0 0',
     })
 }
 
 export const hideSplineButton = (splineInner) => {
-     splineInner.querySelector('#logo').remove();
+    splineInner.querySelector('#logo').remove();
 }
 
 export const scaleToFit = (splineInner) => {
@@ -33,16 +32,17 @@ export const hideVideoControls = () => {
     });
 }
 
+export let zoom = 1;
+
 export const initializeLenis = () => {
     const lenis = new Lenis({
-        lerp: 0.1,
-        infinite: false,
+        lerp: 0.1, infinite: false,
     })
 
     new ScrollSnap(lenis, {snapType: ''})
 
     lenis.on("scroll", ({scroll, limit}) => {
-        //   console.log({scroll, limit});
+        checkElementsToAnimate()
     });
 
     function raf(time) {
@@ -52,3 +52,204 @@ export const initializeLenis = () => {
 
     requestAnimationFrame(raf);
 }
+
+const elementsToAnimate = [{
+    element: document.querySelector('.promo-block .large-lines-container span:nth-child(1)'),
+    direction: 'left',
+    value: 6,
+    delay: 0,
+    partlyVisible: false
+}, {
+    element: document.querySelector('.promo-block .large-lines-container span:nth-child(2)'),
+    direction: 'left',
+    value: 6,
+    delay: 0,
+    partlyVisible: false
+}, {
+    element: document.querySelector('.promo-block .large-lines-container span:nth-child(3)'),
+    direction: 'left',
+    value: 6,
+    delay: 0,
+    partlyVisible: false
+}, {
+    element: document.querySelector('.promo-block .desc-text-container span:nth-child(1)'),
+    direction: 'right',
+    value: 6,
+    delay: 0,
+    partlyVisible: false
+}, //
+    {
+        element: document.querySelector('.promo-block .desc-text-container span:nth-child(2)'),
+        direction: 'right',
+        value: 6,
+        delay: 0,
+        partlyVisible: false
+    }, {
+        element: document.querySelector('.promo-block .desc-text-container span:nth-child(2)'),
+        direction: 'right',
+        value: 6,
+        delay: 0,
+        partlyVisible: false
+    }, //
+    {
+        element: document.querySelector('.nav-card:nth-child(1)'),
+        direction: 'bottom',
+        value: 6,
+        delay: 0,
+        partlyVisible: true
+    }, {
+        element: document.querySelector('.nav-card:nth-child(2)'),
+        direction: 'bottom',
+        value: 6,
+        delay: 0.2,
+        partlyVisible: true
+    }, //
+    {
+        element: document.querySelector('.nav-card:nth-child(1) .bottom-content-wrapper'),
+        direction: 'bottom',
+        value: 6,
+        delay: 0,
+        partlyVisible: true
+    }, {
+        element: document.querySelector('.nav-card:nth-child(2) .bottom-content-wrapper'),
+        direction: 'bottom',
+        value: 6,
+        delay: 0.2,
+        partlyVisible: true
+    }, //
+    {
+        element: document.querySelector('.nav-card:nth-child(1) img'),
+        direction: 'bottom',
+        value: 6,
+        delay: 0.5,
+        partlyVisible: true
+    }, {
+        element: document.querySelector('.nav-card:nth-child(2) img'),
+        direction: 'bottom',
+        value: 6,
+        delay: 0.7,
+        partlyVisible: true
+    }, //
+    {
+        element: document.querySelector('.func-header-block .large-lines-container span:nth-child(1)'),
+        direction: 'left',
+        value: 6,
+        delay: 0,
+        partlyVisible: false
+    }, {
+        element: document.querySelector('.func-header-block .large-lines-container span:nth-child(2)'),
+        direction: 'left',
+        value: 6,
+        delay: 0.2,
+        partlyVisible: false
+    }, //
+    {
+        element: document.querySelector('.func-header-block .desc-text-container span'),
+        direction: 'right',
+        value: 6,
+        delay: 0.2,
+        partlyVisible: false
+    }, //
+    {
+        element: document.querySelector('.features-block div:nth-child(1)'),
+        direction: 'bottom',
+        value: 6,
+        delay: 0,
+        partlyVisible: true
+    },
+    {
+        element: document.querySelector('.features-block div:nth-child(2)'),
+        direction: 'bottom',
+        value: 6,
+        delay: 0,
+        partlyVisible: true
+    },
+    {
+        element: document.querySelector('.features-block div:nth-child(3)'),
+        direction: 'bottom',
+        value: 6,
+        delay: 0,
+        partlyVisible: true
+    },
+    {
+        element: document.querySelector('.features-block div:nth-child(4)'),
+        direction: 'bottom',
+        value: 6,
+        delay: 0,
+        partlyVisible: true
+    },
+    {
+        element: document.querySelector('.features-block div:nth-child(5)'),
+        direction: 'bottom',
+        value: 6,
+        delay: 0,
+        partlyVisible: true
+    },//
+    {
+        element: document.querySelector('.accessories-block-header .large-lines-container span:nth-child(1)'),
+        direction: 'left',
+        value: 6,
+        delay: 0,
+        partlyVisible: false
+    },
+    {
+        element: document.querySelector('.accessories-block-header .large-lines-container span:nth-child(2)'),
+        direction: 'left',
+        value: 6,
+        delay: 0,
+        partlyVisible: false
+    },
+    {
+        element: document.querySelector('.accessories-block-header .large-lines-container span:nth-child(3)'),
+        direction: 'left',
+        value: 6,
+        delay: 0,
+        partlyVisible: false
+    },
+    {
+        element: document.querySelector('.accessories-block-header .desc-text-container'),
+        direction: 'right',
+        value: 6,
+        delay: 0,
+        partlyVisible: false
+    },
+    {
+        element: document.querySelector('.accessories-block'),
+        direction: 'top',
+        value: 6,
+        delay: 0.2,
+        partlyVisible: true
+    }
+]
+
+export const initializeAnimationInChecker = () => {
+    var viewPort = GetWindowViewPort();
+    zoom = viewPort.width / 1440;
+
+    elementsToAnimate.filter((el) => el.element != null).forEach((e) => {
+        if (e.direction === 'left' || e.direction === 'right') gsap.set(e.element, {
+            opacity: 0, xPercent: e.value * ((e.direction === 'left') ? 1 : -1)
+        })
+
+        if (e.direction === 'top' || e.direction === 'bottom') gsap.set(e.element, {
+            opacity: 0, yPercent: e.value * ((e.direction === 'top') ? -1 : 1)
+        })
+    })
+}
+
+const checkElementsToAnimate = () => {
+    elementsToAnimate.filter((el) => el.element != null).forEach((e) => {
+        if (elementIsVisibleInViewport(e)) {
+            gsap.to(e.element, {
+                opacity: 1, xPercent: 0, yPercent: 0, duration: 0.5, delay: e.delay
+            })
+        }
+    })
+}
+
+const elementIsVisibleInViewport = (el) => {
+    let {top, left, bottom, right} = el.element.getBoundingClientRect();
+    const {innerHeight, innerWidth} = window;
+
+    return el.partlyVisible ? ((top * zoom > 0 && top * zoom < innerHeight) || (bottom * zoom > 0 && bottom * zoom < innerHeight)) : top * zoom >= 0 && left * zoom >= 0 && bottom * zoom <= innerHeight && right * zoom <= innerWidth;
+};

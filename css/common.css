@@ -90,12 +90,18 @@ a:hover.no-underline {
     border-radius: 8px;
 
     background-color: var(--light-button-bg);
+    transition: background-color 0.15s ease-in;
+
     padding: 10px 20px;
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
+.large-btn:hover {
+    transition: background-color 0.15s ease-in;
+    background-color: #F0F0F0;
+}
 
 
 .large-btn span {
@@ -104,11 +110,18 @@ a:hover.no-underline {
 
 .glass-effect {
     background-color: #FFFFFF33;
+    transition: background-color 0.15s ease-in;
     backdrop-filter: blur(10px);
 }
 
 .btn-dark {
+    transition: background-color 0.15s ease-in;
     background-color: var(--button-primary-bg) !important;
+}
+
+.btn-dark:hover {
+    transition: background-color 0.15s ease-in;
+    background-color: #383838;
 }
 
 .btn-dark span {
@@ -117,6 +130,11 @@ a:hover.no-underline {
 
 .glass-effect span {
     color: var(--text-primary-d);
+}
+
+.glass-effect:hover {
+    transition: background-color 0.15s ease-in;
+    background-color: #FFFFFF50;
 }
 
 .btn-increased-paddings {
@@ -135,12 +153,14 @@ a:hover.no-underline {
 
     background-color: var(--light-button-bg);
     transition: background-color 0.15s ease-in;
+
     border: none;
     border-radius: 5px;
 }
 
 .small-btn:hover {
-    background-color: #454545 !important;
+    transition: background-color 0.15s ease-in;
+    background-color: #D2D4D5;
 }
 
 .small-btn span {
