@@ -39,7 +39,7 @@ export const initializeLenis = () => {
         lerp: 0.1, infinite: false,
     })
 
-    new ScrollSnap(lenis, {snapType: ''})
+   // new ScrollSnap(lenis, {snapType: ''})
 
     lenis.on("scroll", ({scroll, limit}) => {
         checkElementsToAnimate()

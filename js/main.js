@@ -18,8 +18,6 @@ const initializeAnimations = () => {
     initializeLenis();
     advantagesScrollAnimation();
     reelBlockAnimation();
-
-    animateCursor();
 }
 
 export const onPageLoaded = () => {
@@ -31,44 +29,87 @@ export const onPageLoaded = () => {
     scaleToFit(splineViewerInner);
     hideVideoControls();
 
-    initializeAccessoriesController();
+    initializeAccessoriesController(() => {
+        initializeCursor()
+        initializeDragSlider()
+    });
 
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     initializeAnimations();
-
 }
 
-const ball = document.querySelector(".gradient-cursor");
+const initializeCursor = () => {
+    MouseFollower.registerGSAP(gsap);
 
-let mouseX = 0;
-let mouseY = 0;
+    const cursor = new MouseFollower({
+        iconSvgSrc: 'assets/cursors.svg',
+        stateDetection: {
+            '-pointer': 'a,button,.nav-card, input, #spline-viewer, .tech-info-header',
+        }
+    });
 
-let ballX = 0;
-let ballY = 0;
+    cursor.setIcon('default')
 
-let speed = 0.1;
+    const pointerCursorTargets = document.querySelectorAll('a, button, .nav-card, input');
+    pointerCursorTargets.forEach((e) => {
+        e.addEventListener('mouseover', () => {
+            cursor.setIcon('pointer');
+        });
 
-const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+        e.addEventListener('mouseleave', () => {
+            cursor.setIcon('default')
+        });
+    })
 
-function animateCursor() {
-    var block = $('.typography-block');
+    const slidingCursorTargets = document.querySelectorAll('#spline-viewer')
+    slidingCursorTargets.forEach((e) => {
+        e.addEventListener('mouseover', () => {
+            cursor.setIcon('slide');
+        });
 
-    var relX = (mouseX - block.offset().left) / zoom
-    var relY = clamp((mouseY - block.offset().top) / zoom, 0, block.height());
+        e.addEventListener('mouseleave', () => {
+            cursor.setIcon('default')
+        });
+    })
 
-    let distX = relX - ballX;
-    let distY = relY - ballY;
+    const draggingCursorTargets = document.querySelectorAll('.slider-area')
+    draggingCursorTargets.forEach((e) => {
+        e.addEventListener('mouseover', () => {
+            cursor.setIcon('drag');
+        });
 
-    ballX = (ballX + (distX * speed));
-    ballY = (ballY + (distY * speed));
-
-    ball.style.left = ballX + "px";
-    ball.style.top = ballY + "px";
-
-    requestAnimationFrame(animateCursor);
+        e.addEventListener('mouseleave', () => {
+            cursor.setIcon('default')
+        });
+    })
 }
 
-document.addEventListener("mousemove", function (event) {
-    mouseX = event.pageX;
-    mouseY = event.pageY;
-})
+const initializeDragSlider = () => {
+    const slider = document.querySelector('.slider-area');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('active');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 0.5; //scroll-fast
+        slider.scrollLeft = scrollLeft - walk;
+        console.log(walk);
+    });
+}

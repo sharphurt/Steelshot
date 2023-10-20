@@ -132,6 +132,12 @@ body {
 .back-to-site {
     color: var(--text-secondary);
     width: 100px;
+    transition: color 0.15s ease-in;
+}
+
+.back-to-site:hover {
+    color: #5E5E5E;
+    transition: color 0.15s ease-in;
 }
 
 .name {
@@ -142,7 +148,7 @@ body {
 }
 
 .name:hover {
-    color: #B7B7B7;
+    color: #bdbdbd;
 }
 
 .how-block {

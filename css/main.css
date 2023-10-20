@@ -64,7 +64,8 @@
     flex-direction: column;
     position: relative;
     gap: 30px;
-    padding: 100px 0 100px 257px;
+    padding: 100px 0 100px 230px;
+    width: 100%;
 }
 
 .slogan-lines-container * {
@@ -93,27 +94,26 @@
     top: 0;
     left: 0;
     transform: translate(-50%, -50%);
-    width: 0;
-    height: 0;
+    width: 10px;
+    height: 10px;
     border-radius: 285px;
     background: #ffffff;
     z-index: 1000;
     transition: width 0.4s ease-out, height 0.4s ease-out;
 
+    pointer-events: none;
     filter: blur(50px);
 }
 
-.typography-block {
-  //  overflow: hidden;
-}
-
-.typography-block:hover .gradient-cursor {
+.typography-block:hover ~ .gradient-cursor {
     width: 200px;
     height: 200px;
-
     transition: width 0.4s ease-out, height 0.4s ease-out;
 }
 
+.typography-block span {
+    pointer-events: none;
+}
 
 .nav-block {
     padding: 16px;
@@ -222,7 +222,7 @@
 }
 
 .func-header-block {
-    padding: 100px 0 100px 257px;
+    padding: 100px 0 100px 230px;
     height: 380px;
     gap: 50px;
 }
@@ -451,14 +451,26 @@ spline-viewer {
         overflow-x: scroll;
         height: 100%;
         gap: 16px;
-        padding-bottom: 70px;
+        align-items: flex-end;
+        padding-bottom: 32px;
+        padding-top: 70px;
 
         position: relative;
         padding-right: 16px;
 
         -ms-overflow-style: none;
         scrollbar-width: none;
-        scroll-behavior: smooth;
+    }
+
+    .slider-area {
+        transform: rotateX(180deg);
+    }
+
+    .slider-area .item-card {
+        transform: rotateX(180deg);
+        -moz-transform: rotateX(180deg);
+        -o-transform: rotateX(180deg);
+        -webkit-transform: rotateX(180deg);
     }
 
     .slider-area::-webkit-scrollbar {
@@ -622,6 +634,13 @@ spline-viewer {
 
     .tech-info-header {
         cursor: pointer;
+        transition: color 0.15s ease-in;
+        color: var(--text-primary);
+    }
+
+    .tech-info-header:hover {
+        color: #818181;
+        transition: color 0.15s ease-in;
     }
 
     .tech-info-container {

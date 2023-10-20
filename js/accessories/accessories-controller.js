@@ -1,8 +1,9 @@
-const initializeAccessoriesController = () => {
+const initializeAccessoriesController = (callback) => {
     const catalogContainer = $('.slider-area')
 
     loadAllData(['lenses', 'cases', 'stands', 'batteries'], function () {
         loadTab('lenses')
+        callback()
     })
 }
 
