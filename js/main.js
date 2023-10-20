@@ -1,8 +1,6 @@
 import {
     advantagesScrollAnimation,
-    GetWindowViewPort,
     reelBlockAnimation,
-    slideInAnimation
 } from "./animation-setup.js";
 import {
     hideSplineButton,
@@ -36,6 +34,7 @@ export const onPageLoaded = () => {
 
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     initializeAnimations();
+    animateWhiteGradient();
 }
 
 const initializeCursor = () => {
@@ -83,6 +82,33 @@ const initializeCursor = () => {
         });
     })
 }
+
+const whiteGradient = document.querySelector(".gradient-cursor");
+
+let mouseX = 0;
+let mouseY = 0;
+
+let ballX = 0;
+let ballY = 0;
+
+let speed = 0.1;
+const animateWhiteGradient = () => {
+    let distX = mouseX - ballX;
+    let distY = mouseY - ballY;
+
+    ballX = (ballX + (distX * speed));
+    ballY = (ballY + (distY * speed));
+
+    whiteGradient.style.left = ballX + "px";
+    whiteGradient.style.top = ballY + "px";
+
+    requestAnimationFrame(animateWhiteGradient);
+}
+
+document.addEventListener("mousemove", function (event) {
+    mouseX = event.pageX;
+    mouseY = event.pageY;
+})
 
 const initializeDragSlider = () => {
     const slider = document.querySelector('.slider-area');
