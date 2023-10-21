@@ -26,6 +26,14 @@
     --zoom-factor: 1;
 }
 
+a, button, .nav-card, input, #spline-viewer, .tech-info-header {
+    cursor: none;
+}
+
+button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled) {
+    cursor: none !important;
+}
+
 html.lenis {
     height: auto;
 }
@@ -95,18 +103,13 @@ body section:not(.advantages-block):not(.reel-block) {
 }
 
 a {
-    color: var(--accent-orange);
-    text-decoration: underline 1px #BF554500;
+    color: var(--text-primary);
+    text-decoration: none;
     transition: text-decoration-color 200ms;
 }
 
 a.no-underline {
     text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline 1px #BF5545FF;
-    text-decoration-style: dashed;
 }
 
 a:hover.no-underline {

@@ -253,3 +253,49 @@ const elementIsVisibleInViewport = (el) => {
 
     return el.partlyVisible ? ((top * zoom > 0 && top * zoom < innerHeight) || (bottom * zoom > 0 && bottom * zoom < innerHeight)) : top * zoom >= 0 && left * zoom >= 0 && bottom * zoom <= innerHeight && right * zoom <= innerWidth;
 };
+
+export const initializeCursor = () => {
+    MouseFollower.registerGSAP(gsap);
+
+    const cursor = new MouseFollower({
+        iconSvgSrc: 'assets/cursors.svg',
+        stateDetection: {
+            '-pointer': 'a,button,.nav-card, input, #spline-viewer, .tech-info-header',
+        }
+    });
+
+    cursor.setIcon('default')
+
+    const pointerCursorTargets = document.querySelectorAll('a, button, .nav-card, input');
+    pointerCursorTargets.forEach((e) => {
+        e.addEventListener('mouseover', () => {
+            cursor.setIcon('pointer');
+        });
+
+        e.addEventListener('mouseleave', () => {
+            cursor.setIcon('default')
+        });
+    })
+
+    const slidingCursorTargets = document.querySelectorAll('#spline-viewer')
+    slidingCursorTargets.forEach((e) => {
+        e.addEventListener('mouseover', () => {
+            cursor.setIcon('slide');
+        });
+
+        e.addEventListener('mouseleave', () => {
+            cursor.setIcon('default')
+        });
+    })
+
+    const draggingCursorTargets = document.querySelectorAll('.slider-area')
+    draggingCursorTargets.forEach((e) => {
+        e.addEventListener('mouseover', () => {
+            cursor.setIcon('drag');
+        });
+
+        e.addEventListener('mouseleave', () => {
+            cursor.setIcon('default')
+        });
+    })
+}

@@ -1,4 +1,4 @@
-import {hideVideoControls, initializeLenis, initializeWindow, scaleToFit} from "./common.js";
+import {hideVideoControls, initializeCursor, initializeLenis, initializeWindow, scaleToFit} from "./common.js";
 import {slideInAnimation} from "./animation-setup.js";
 
 const wait = (delay = 0) =>
@@ -10,6 +10,7 @@ const onPageLoaded = () => {
 
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     initializeAnimations()
+    initializeCursor()
 }
 
 const initializeAnimations = () => {
@@ -53,7 +54,4 @@ const initializeAnimations = () => {
     })
 }
 
-$(document).ready(() => {
-        onPageLoaded()
-    }
-)
+$(document).ready(() => onPageLoaded())

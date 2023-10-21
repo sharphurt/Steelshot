@@ -9,7 +9,6 @@ body {
     flex-direction: column;
     gap: 150px;
     opacity: 0;
-
 }
 
 .header-block {
@@ -143,8 +142,6 @@ body {
 .name {
     color: var(--button-secondary-bg);
     transition: color 0.25s ease-in;
-
-    cursor: default;
 }
 
 .name:hover {
