@@ -34,9 +34,9 @@ const baseHTML = `
         </div>
         <div class="tech-info-container"></div>
     </div>
-    <button class="small-btn btn-secondary">
-        <span class="text-t3">Show more</span>
-    </button>
+<!--    <button class="small-btn btn-secondary">-->
+<!--        <span class="text-t3">Show more</span>-->
+<!--    </button>-->
 </div>`
 
 const hideElement = (html, property) => {

@@ -86,7 +86,7 @@ export const reelBlockAnimation = () => {
         paddingRight: 16 * zoom
     });
 
-    gsap.set('.reel-video', {
+    gsap.set('.reel-video-placeholder', {
         borderRadius: 16 * zoom
     });
 
@@ -110,7 +110,7 @@ export const reelBlockAnimation = () => {
                 paddingRight: 0,
                 duration: 0.4
             });
-            gsap.to('.reel-video', {
+            gsap.to('.reel-video-placeholder', {
                 borderRadius: 0,
                 duration: 0.4
             })

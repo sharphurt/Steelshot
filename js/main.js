@@ -35,6 +35,7 @@ export const onPageLoaded = () => {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     initializeAnimations();
     animateWhiteGradient();
+    parallaxAboutUs();
 }
 
 const whiteGradient = document.querySelector(".gradient-cursor");
@@ -57,6 +58,14 @@ const animateWhiteGradient = () => {
     whiteGradient.style.top = ballY + "px";
 
     requestAnimationFrame(animateWhiteGradient);
+}
+
+function parallaxAboutUs() {
+    const rectangle = document.querySelector(".us-rectangle")
+
+    rectangle.style.transform = `translateX(${mouseX / 90}px) translateY(${mouseY / 90 - 220}px)`;
+
+    requestAnimationFrame(parallaxAboutUs);
 }
 
 document.addEventListener("mousemove", function (event) {
@@ -92,4 +101,20 @@ const initializeDragSlider = () => {
         slider.scrollLeft = scrollLeft - walk;
         console.log(walk);
     });
+}
+
+export const playVideoReel = () => {
+    $('.reel-block').addClass('playing')
+    const video = document.querySelector('.reel-video-placeholder')
+    video.muted = false;
+    video.loop = false;
+    video.load();
+
+    video.onended = function (e) {
+        console.log('end')
+        $('.reel-block').removeClass('playing')
+        video.muted = true;
+        video.loop = true;
+        video.play();
+    };
 }

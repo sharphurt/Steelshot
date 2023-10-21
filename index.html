@@ -99,7 +99,7 @@
     </style>
 
     <script type="module">
-        import {onPageLoaded} from "./js/main.js";
+        import {onPageLoaded, playVideoReel} from "./js/main.js";
 
         let splineLoaded = false;
         const GetWindowViewPort = () => {
@@ -185,6 +185,8 @@
                 gsap.to(window, {duration: 2, ease: 'power4.inOut', scrollTo: ".advantages-block"});
             }
         });
+
+        $('.reel-block button').on('click', playVideoReel)
     </script>
 </head>
 <body data-cursor-icon="default">
@@ -542,7 +544,6 @@ of stunning photographs</span>
         <div class="reel-progress-bar glass-effect">
             <div class="reel-progress-thumb"></div>
         </div>
-        <!--        <div>-->
         <div class="ticker-wrap">
             <div class="ticker">
                 <span>"Eternal Echoes" <span class="opacity-out">by Olivia Anderson</span></span>
@@ -563,15 +564,14 @@ of stunning photographs</span>
                 <span class="text-t1">With our cameras, directors create their best works. And&nbsp;you can too</span>
             </div>
             <button class="large-btn glass-effect btn-increased-paddings">
-                <span class="text-t1">Watch reel</span>
+                <span class="text-t1">Play reel</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15 7.99982C15.0004 8.16959 14.9569 8.33658 14.8736 8.48454C14.7904 8.6325 14.6703 8.7564 14.525 8.8442L5.52 14.3529C5.36818 14.4459 5.19429 14.4967 5.0163 14.5C4.83831 14.5033 4.66266 14.459 4.5075 14.3717C4.35382 14.2858 4.2258 14.1605 4.1366 14.0087C4.04741 13.8568 4.00026 13.684 4 13.5079V2.4917C4.00026 2.31563 4.04741 2.1428 4.1366 1.99099C4.2258 1.83919 4.35382 1.71388 4.5075 1.62795C4.66266 1.54067 4.83831 1.49639 5.0163 1.49968C5.19429 1.50298 5.36818 1.55373 5.52 1.6467L14.525 7.15545C14.6703 7.24324 14.7904 7.36715 14.8736 7.51511C14.9569 7.66307 15.0004 7.83006 15 7.99982Z"
                           fill="#E5E7E8"/>
                 </svg>
             </button>
         </div>
-        <video class="reel-video" src="assets/reel.mp4" width="1440" autoplay muted loop></video>
-        <!--        </div>-->
+        <video class="reel-video-placeholder" src="assets/reel.mp4" width="1440" autoplay muted loop></video>
     </div>
 
 </section>
@@ -627,6 +627,42 @@ of stunning photographs</span>
 
 <!--Footer-->
 <section class="footer d-flex flex-column">
+    <div class="footer-frame-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="213" height="221" viewBox="0 0 213 221" fill="none">
+            <path d="M0.5 11.5C0.5 5.14871 5.64873 0 12 0H213V3H12C7.30558 3 3.5 6.80557 3.5 11.5V220.675H0.5V11.5Z"
+                  fill="#222222"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="213" height="221" viewBox="0 0 213 221" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M201 3H0V0H201C207.351 0 212.5 5.14872 212.5 11.5V220.675H209.5V11.5C209.5 6.80558 205.694 3 201 3Z"
+                  fill="#222222"/>
+        </svg>
+    </div>
+    <a href="about.html" class="footer-center-wrapper">
+        <div class="to-section-btn d-flex">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.1922 10.4422L7.94219 16.6922C7.88412 16.7502 7.81518 16.7963 7.73931 16.8277C7.66344 16.8592 7.58212 16.8753 7.5 16.8753C7.41788 16.8753 7.33656 16.8592 7.26069 16.8277C7.18482 16.7963 7.11588 16.7502 7.05781 16.6922C6.99974 16.6341 6.95368 16.5652 6.92225 16.4893C6.89083 16.4134 6.87465 16.3321 6.87465 16.25C6.87465 16.1679 6.89083 16.0865 6.92225 16.0107C6.95368 15.9348 6.99974 15.8659 7.05781 15.8078L12.8664 9.99998L7.05781 4.19217C6.94054 4.07489 6.87465 3.91583 6.87465 3.74998C6.87465 3.58413 6.94054 3.42507 7.05781 3.30779C7.17509 3.19052 7.33415 3.12463 7.5 3.12463C7.66585 3.12463 7.82491 3.19052 7.94219 3.30779L14.1922 9.55779C14.2503 9.61584 14.2964 9.68477 14.3278 9.76064C14.3593 9.83652 14.3755 9.91785 14.3755 9.99998C14.3755 10.0821 14.3593 10.1634 14.3278 10.2393C14.2964 10.3152 14.2503 10.3841 14.1922 10.4422Z"
+                      fill="#1C1C1C"/>
+            </svg>
+        </div>
+        <span class="about-us-header">INFO ABOUT US</span>
+        <div class="us-rectangle">
+            <div class="us-top">
+                <span class="text-h4">Arisha yo</span>
+                <img src="assets/arisha.png" width="45" height="45">
+            </div>
+            <div class="us-bottom">
+                <img src="assets/sharphurt.png" width="45" height="45">
+                <span class="text-h4">sharphurt</span>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="203" height="203" viewBox="0 0 203 203"
+                 fill="none">
+                <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd"
+                      d="M11.5 3C6.80558 3 3 6.80558 3 11.5V40.2869H0V11.5C0 5.14873 5.14873 0 11.5 0H46.5001V3H11.5ZM191.5 3H157.5V0H191.5C197.851 0 203 5.14873 203 11.5V40.7869H200V11.5C200 6.80558 196.194 3 191.5 3ZM3 162.787V191.5C3 196.194 6.80558 200 11.5 200H46.5001V203H11.5C5.14872 203 0 197.851 0 191.5V162.787H3ZM200 191.5V162.787H203V191.5C203 197.851 197.851 203 191.5 203H157.5V200H191.5C196.194 200 200 196.194 200 191.5Z"
+                      fill="#8E8E8E"/>
+            </svg>
+        </div>
+    </a>
     <a class="footer-logo" href="#">
         <svg class="footer-logo" width="150" height="27" viewBox="0 0 150 27" fill="none"
              xmlns="http://www.w3.org/2000/svg">
@@ -649,10 +685,10 @@ of stunning photographs</span>
                   fill="#242424"/>
         </svg>
     </a>
-    <div class="legal d-flex justify-content-between align-items-center">
-        <span class="text-t3 copyrights">Non-commercial project. Any&nbsp;coincidences with&nbsp;real products and names are random</span>
+    <div class="legal d-flex justify-content-between align-items-end">
         <span class="text-t3 created-by">Created as&nbsp;a&nbsp;pet-project.<br><a
                 href="about.html">Meet the&nbsp;creators!</a></span>
+        <span class="text-t3 copyrights">Non-commercial project.</span>
     </div>
 </section>
 </body>

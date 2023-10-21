@@ -260,13 +260,13 @@ export const initializeCursor = () => {
     const cursor = new MouseFollower({
         iconSvgSrc: 'assets/cursors.svg',
         stateDetection: {
-            '-pointer': 'a,button,.nav-card, input, #spline-viewer, .tech-info-header',
+            '-pointer': 'a,button,.nav-card, input, #spline-viewer, .tech-info-header, .footer',
         }
     });
 
     cursor.setIcon('default')
 
-    const pointerCursorTargets = document.querySelectorAll('a, button, .nav-card, input');
+    const pointerCursorTargets = document.querySelectorAll('a, button, .nav-card, input, .footer');
     pointerCursorTargets.forEach((e) => {
         e.addEventListener('mouseover', () => {
             cursor.setIcon('pointer');
