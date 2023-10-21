@@ -1,0 +1,138 @@
+{
+  "collection-name": "cameras",
+  "collection": [
+    {
+      "image": "./assets/accessories/cameras/cameras-1.png",
+      "name": "Milrand X1",
+      "type": "Film camera",
+      "price": "$299",
+      "description": "Versatile and compact film camera designed to meet the needs of photography enthusiasts and casual users alike",
+      "properties": {
+        "focal-length": "24–120mm",
+        "diaphragm": " f/2.8–f/11",
+        "optical-magnification": "5x",
+        "has-autofocus": "yes",
+        "image-stabilization": "yes",
+        "viewing-angle": "120"
+      },
+      "technical": {
+        "size": "15х8х20 cm",
+        "materials": "It is constructed using a combination of premium materials, including a durable magnesium alloy body and weather-sealed components"
+      }
+    },
+    {
+      "image": "./assets/accessories/cameras/cameras-2.png",
+      "name": "LerroEver Pride Edition",
+      "type": "Digital camera",
+      "price": "$360",
+      "description": "Express yourself and capture moments of love, joy, and self-expression with this unique camera.",
+      "properties": {
+        "focal-length": "24–120mm",
+        "diaphragm": " f/2.8–f/11",
+        "optical-magnification": "5x",
+        "has-autofocus": "yes",
+        "image-stabilization": "5-axis stabilization",
+        "viewing-angle": "120"
+      },
+      "technical": {
+        "size": "14х5х14 cm",
+        "materials": "It is constructed using a combination of premium materials, including a durable magnesium alloy body and weather-sealed components"
+      }
+    },
+    {
+      "image": "./assets/accessories/cameras/cameras-3.png",
+      "name": "EveryCam Pride Edition",
+      "price": "$360",
+      "type": "Film camera",
+      "description": "Express yourself and capture moments of love, joy, and self-expression with this unique camera.",
+      "properties": {
+        "focal-length": "24–120mm",
+        "diaphragm": " f/2.8–f/11",
+        "optical-magnification": "5x",
+        "has-autofocus": "yes",
+        "image-stabilization": "5-axis stabilization",
+        "viewing-angle": "120"
+      },
+      "technical": {
+        "size": "14х5х14 cm",
+        "materials": "It is constructed using a combination of premium materials, including a durable magnesium alloy body and weather-sealed components"
+      }
+    },
+    {
+      "image": "./assets/accessories/cameras/cameras-4.png",
+      "name": "Sainet Cristal",
+      "price": "$790",
+      "type": "Digital camera",
+      "description": "The medium-range camera is a versatile imaging device designed for capturing high-quality photos and videos in a variety of settings.",
+      "properties": {
+        "focal-length": "24–120mm",
+        "diaphragm": "f/2.8–f/16",
+        "optical-magnification": "5x",
+        "has-autofocus": "yes",
+        "image-stabilization": "yes",
+        "viewing-angle": "170"
+      },
+      "technical": {
+        "size": "14х5х14 cm",
+        "materials": "The camera body is constructed from a combination of high-quality polycarbonate and metal alloy, ensuring durability and a premium feel."
+      }
+    },
+    {
+      "image": "./assets/accessories/cameras/cameras-5.png",
+      "name": "JFCam Portable",
+      "price": "$950",
+      "type": "Digital camera",
+      "description": "Sleek and compact camera offers a perfect blend of portability and performance, making it your ideal companion for capturing stunning moments and memories in high-quality detail.",
+      "properties": {
+        "focal-length": "24–120mm",
+        "diaphragm": "f/2.8–f/16",
+        "optical-magnification": "5x",
+        "has-autofocus": "yes",
+        "image-stabilization": "yes",
+        "viewing-angle": "170"
+      },
+      "technical": {
+        "size": "14х9х5 cm",
+        "materials": "It's constructed with a durable yet lightweight magnesium alloy body, ensuring both robustness and portability."
+      }
+    },
+    {
+      "image": "./assets/accessories/cameras/cameras-6.png",
+      "name": "JFCam OpticMS",
+      "price": "$1299",
+      "type": "SLR camera",
+      "description": "This camera is a testament to the marriage of art and technology, offering exceptional performance, durability, and style.",
+      "properties": {
+        "focal-length": "24–100mm",
+        "diaphragm": "f/2.8–f/22",
+        "optical-magnification": "8x",
+        "has-autofocus": "yes",
+        "image-stabilization": "yes",
+        "viewing-angle": "170"
+      },
+      "technical": {
+        "size": "13х11х8 cm",
+        "materials": "Its body is constructed from a magnesium alloy, providing both strength and a lightweight feel."
+      }
+    },
+    {
+      "image": "./assets/accessories/cameras/cameras-7.png",
+      "name": "ProCapture X1",
+      "type": "SLR camera",
+      "price": "$1499",
+      "description": " Crafted with precision and innovation, this camera is designed for professional photographers and enthusiasts who demand nothing but the best.",
+      "properties": {
+        "focal-length": "24–100mm",
+        "diaphragm": "f/1.2–f/22",
+        "optical-magnification": "8x",
+        "has-autofocus": "yes",
+        "image-stabilization": "yes",
+        "viewing-angle": "170"
+      },
+      "technical": {
+        "size": "14x10x7 cm",
+        "materials": "Its body is crafted from a magnesium alloy chassis, providing durability while keeping the camera lightweight."
+      }
+    }
+  ]
+}

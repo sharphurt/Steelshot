@@ -1,7 +1,7 @@
 const baseHTML = `
 <div class="item-card">
     <div class="image-header-container">
-        <img class="item-image" src="%image%" width=340 height=340 alt="%name% image"/>
+        <img class="item-image" draggable="false" src="%image%" width=340 height=340 alt="%name% image"/>
         <div>
             <span class="item-name text-t1-bold">%name%</span>
             <span class="item-price text-t1-bold">%price%</span>
