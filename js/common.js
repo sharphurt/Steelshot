@@ -42,6 +42,8 @@ export const initializeLenis = () => {
 
     // new ScrollSnap(lenis, {snapType: ''})
 
+    checkElementsToAnimate()
+
     lenis.on("scroll", ({scroll, limit}) => {
         checkElementsToAnimate()
     });

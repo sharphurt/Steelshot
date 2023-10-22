@@ -11,7 +11,9 @@
 .main-screen {
     padding: 0 16px;
     position: relative;
-    height: calc(100vh / var(--zoom-factor) - 100px);
+    aspect-ratio: auto 1408 / 809;
+    width: 100%;
+    max-height: calc(100vh / var(--zoom-factor) - 100px);
 }
 
 .video-container {
@@ -29,15 +31,21 @@
 }
 
 .main-image {
+    aspect-ratio: auto 1408 / 809;
     position: absolute;
     bottom: 0;
     z-index: 100;
     object-fit: cover;
+    width: 100%;
 }
 
 .tags-container {
     gap: 8px;
     padding: 24px 24px;
+    position: absolute;
+    z-index: 100;
+    left: 24px;
+    right: 24px;
 }
 
 .tag {
@@ -553,7 +561,6 @@ spline-viewer {
 
 
 .accessories-block {
-    height: calc(700px * var(--zoom-factor));
 
     .accessories-header {
         margin-left: 253px;

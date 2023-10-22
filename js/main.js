@@ -28,7 +28,9 @@ export const onPageLoaded = () => {
     hideVideoControls();
 
     initializeAccessoriesController(() => {
-        initializeCursor();
+        if (window.innerWidth > 1024)
+            initializeCursor();
+
         initializeDragSlider();
     });
 
@@ -63,8 +65,8 @@ const animateWhiteGradient = () => {
 
 function parallaxAboutUs() {
     const rectangle = document.querySelector(".us-rectangle")
-
-    rectangle.style.transform = `translateX(${mouseX / 90}px) translateY(${mouseY / 90 - 220}px)`;
+    if (window.innerWidth > 1024)
+        rectangle.style.transform = `translateX(${mouseX / 90}px) translateY(${mouseY / 90 - 220}px)`;
 
     requestAnimationFrame(parallaxAboutUs);
 }
