@@ -299,22 +299,11 @@ export const initializeCursor = () => {
         });
     })
 
-    const closeCursorTargets = document.querySelectorAll('.reel-block')
+    const closeCursorTargets = document.querySelectorAll('.reel-close-cover')
     closeCursorTargets.forEach((e) => {
         e.addEventListener('mouseover', () => {
-            if (e.matches('.reel-block.playing'))
-                cursor.setIcon('close')
-            if (e.matches('.reel-block.muted'))
-                cursor.setIcon('default')
+            cursor.setIcon('close')
         });
-
-        e.addEventListener('mousemove', () => {
-            if (e.matches('.reel-block.playing'))
-                cursor.setIcon('close')
-            if (e.matches('.reel-block.muted'))
-                cursor.setIcon('default')
-        });
-
 
         e.addEventListener('mouseleave', () => {
             cursor.setIcon('default')
