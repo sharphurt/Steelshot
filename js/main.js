@@ -121,17 +121,15 @@ export const playVideoReel = () => {
     video.loop = false;
     video.volume = 0.5;
 
-    $('loading').removeClass('hided')
-    console.log('loader show')
-    video.load();
+    video.play()
     video.onended = closeVideo;
     video.onplay = () => document.querySelector('.reel-block').addEventListener('click', closeVideo)
-
-    video.addEventListener('loadeddata', (e) => {
+    video.onwaiting = () => {
+        console.log('video loading')
+        $('.loading').removeClass('hided')
+    }
+    video.onplaying = () => {
         console.log('video loaded')
-        console.log('loader hided')
-        if (video.readyState >= 3) {
-            $('loading').addClass('hided')
-        }
-    });
+        $('.loading').addClass('hided')
+    }
 }

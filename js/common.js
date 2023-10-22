@@ -1,5 +1,6 @@
 import {GetWindowViewPort} from "./animation-setup.js";
 import {ScrollSnap} from "./scroll-snap.js";
+import MouseFollower from "./cursor-following.js";
 
 export const initializeWindow = () => {
     var viewPort = GetWindowViewPort();

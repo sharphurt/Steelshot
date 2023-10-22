@@ -473,8 +473,14 @@ spline-viewer {
     height: 20px;
     z-index: 9999;
 
+    opacity: 1 !important;
+
     display: block;
     transition: opacity 0.2s ease-out;
+}
+
+.loading * {
+    opacity: 1 !important;
 }
 
 .loading.hided {
