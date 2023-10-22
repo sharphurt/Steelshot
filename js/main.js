@@ -100,7 +100,6 @@ const initializeDragSlider = () => {
         const x = e.pageX - slider.offsetLeft;
         const walk = (x - startX) * 0.5; //scroll-fast
         slider.scrollLeft = scrollLeft - walk;
-        console.log(walk);
     });
 }
 
@@ -120,7 +119,16 @@ export const playVideoReel = () => {
     const video = document.querySelector('.reel-video-placeholder')
     video.muted = false;
     video.loop = false;
+    video.volume = 0.5;
+    $('loading').removeClass('hided')
     video.load();
     video.onended = closeVideo;
     video.onplay = () => document.querySelector('.reel-block').addEventListener('click', closeVideo)
+
+    video.addEventListener('loadeddata', (e) => {
+        if (video.readyState >= 3) {
+            $('loading').addClass('hided')
+        }
+
+    });
 }

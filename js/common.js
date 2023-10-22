@@ -309,7 +309,6 @@ export const initializeCursor = () => {
         });
 
         e.addEventListener('mousemove', () => {
-            console.log(e)
             if (e.matches('.reel-block.playing'))
                 cursor.setIcon('close')
             if (e.matches('.reel-block.muted'))
