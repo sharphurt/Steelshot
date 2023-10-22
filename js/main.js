@@ -105,6 +105,8 @@ const initializeDragSlider = () => {
 
 export const playVideoReel = () => {
     const closeVideo = () => {
+        console.log('close')
+
         $('.reel-block').removeClass('playing')
         $('.reel-block').addClass('muted')
         video.muted = true;
@@ -121,15 +123,15 @@ export const playVideoReel = () => {
     video.loop = false;
     video.volume = 0.5;
 
+    video.currentTime = 0;
     video.play()
     video.onended = closeVideo;
-    video.onplay = () => document.querySelector('.reel-block').addEventListener('click', closeVideo)
     video.onwaiting = () => {
         console.log('video loading')
         $('.loading').removeClass('hided')
     }
     video.onplaying = () => {
-        console.log('video loaded')
+        document.querySelector('.reel-block').addEventListener('click', closeVideo)
         $('.loading').addClass('hided')
     }
 }
