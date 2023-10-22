@@ -17,4 +17,8 @@
         <path d="M7 7L4.06667 9.2C3.53333 9.6 3.53333 10.4 4.06667 10.8L7 13" stroke="#ffffff" stroke-linecap="round"/>
         <rect x="0.5" y="0.5" width="19" height="19" rx="6.5" stroke="#ffffff"/>
     </symbol>
+    <symbol class="close" id="close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M14 6L6 14M6 6L14 14" stroke="#ffffff" stroke-linecap="round"/>
+        <rect x="0.5" y="0.5" width="19" height="19" rx="6.5" stroke="#ffffff"/>
+    </symbol>
 </svg>

@@ -186,7 +186,10 @@
             }
         });
 
-        $('.reel-block button').on('click', playVideoReel)
+        $('.reel-block button').on('click', () => {
+            playVideoReel()
+           // cursor.setIcon('close')
+        })
     </script>
 </head>
 <body data-cursor-icon="default">

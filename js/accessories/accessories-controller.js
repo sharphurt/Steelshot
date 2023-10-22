@@ -18,6 +18,8 @@ const clearContainer = () => {
     });
 }
 
+var itemsInCart = []
+
 const loadTab = (tabName) => {
     const catalogContainer = $('.slider-area');
 
@@ -33,6 +35,26 @@ const loadTab = (tabName) => {
         opacity: 1,
         marginBottom: "0",
     }, 200);
+
+    document.querySelectorAll('.cart-btn').forEach((e) => {
+        if (itemsInCart.includes(e.getAttribute('id')))
+            e.classList.add('added')
+
+        e.addEventListener('click', () => {
+            if (!itemsInCart.includes(e.getAttribute('id'))) {
+                itemsInCart.push(e.getAttribute('id'))
+                e.classList.add('added')
+            } else {
+                const index = itemsInCart.indexOf(e.getAttribute('id'))
+                if (index > -1)
+                    itemsInCart.splice(index)
+
+                e.classList.remove('added')
+            }
+
+            console.log(itemsInCart)
+        })
+    })
 }
 
 const initializeTechnicalInfoToggle = () => {

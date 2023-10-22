@@ -28,14 +28,15 @@ export const onPageLoaded = () => {
     hideVideoControls();
 
     initializeAccessoriesController(() => {
-        initializeCursor()
-        initializeDragSlider()
+        initializeCursor();
+        initializeDragSlider();
     });
 
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     initializeAnimations();
     animateWhiteGradient();
     parallaxAboutUs();
+
 }
 
 const whiteGradient = document.querySelector(".gradient-cursor");
@@ -104,17 +105,22 @@ const initializeDragSlider = () => {
 }
 
 export const playVideoReel = () => {
+    const closeVideo = () => {
+        $('.reel-block').removeClass('playing')
+        $('.reel-block').addClass('muted')
+        video.muted = true;
+        video.loop = true;
+        video.play();
+        document.querySelector('.reel-block').removeEventListener('click', closeVideo)
+    }
+
     $('.reel-block').addClass('playing')
+    $('.reel-block').removeClass('muted')
+
     const video = document.querySelector('.reel-video-placeholder')
     video.muted = false;
     video.loop = false;
     video.load();
-
-    video.onended = function (e) {
-        console.log('end')
-        $('.reel-block').removeClass('playing')
-        video.muted = true;
-        video.loop = true;
-        video.play();
-    };
+    video.onended = closeVideo;
+    video.onplay = () => document.querySelector('.reel-block').addEventListener('click', closeVideo)
 }

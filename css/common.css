@@ -250,3 +250,67 @@ a:hover.no-underline {
 .tab-btn.active span {
     color: var(--text-primary);
 }
+
+.cart-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.cart-btn.added {
+    background-color: var(--light-button-bg) !important;
+    width: 88px;
+    transition: background-color 0.3s ease-out, width 0.3s ease-out;
+    height: 27px;
+}
+
+.cart-btn.added:hover {
+    background-color: #ECECEC !important;
+    transition: background-color 0.3s ease-out, width 0.3s ease-out;
+}
+
+.cart-btn.added:before {
+    transform: translateY(1px);
+    transition: transform 0.1s ease-in;
+}
+
+.cart-btn.added .check {
+    transform: translateY(0);
+    transition: transform 0.1s ease-in;
+}
+
+.cart-btn span, .cart-btn .plus {
+    transform: translateY(0);
+    transition: transform 0.1s ease-out;
+}
+
+.cart-btn.added span, .cart-btn.added .plus {
+    transform: translateY(-20px);
+    transition: transform 0.1s ease-out;
+    position: absolute;
+}
+
+.cart-btn:before {
+    display: block;
+    content: "Added";
+    position: absolute;
+    left: 16px;
+
+    color: var(--text-primary);
+
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 128%;
+    letter-spacing: -0.24px;
+
+    transform: translateY(20px);
+    transition: transform 0.1s ease-in;
+}
+
+.cart-btn .check {
+    position: absolute;
+    right: 16px;
+    transform: translateY(20px);
+    transition: transform 0.1s ease-in;
+}

@@ -39,7 +39,7 @@ export const initializeLenis = () => {
         lerp: 0.1, infinite: false,
     })
 
-   // new ScrollSnap(lenis, {snapType: ''})
+    // new ScrollSnap(lenis, {snapType: ''})
 
     lenis.on("scroll", ({scroll, limit}) => {
         checkElementsToAnimate()
@@ -254,16 +254,16 @@ const elementIsVisibleInViewport = (el) => {
     return el.partlyVisible ? ((top * zoom > 0 && top * zoom < innerHeight) || (bottom * zoom > 0 && bottom * zoom < innerHeight)) : top * zoom >= 0 && left * zoom >= 0 && bottom * zoom <= innerHeight && right * zoom <= innerWidth;
 };
 
+var cursor = new MouseFollower({
+    speed: 0.35,
+    iconSvgSrc: 'assets/cursors.svg',
+    stateDetection: {
+        '-pointer': 'a,button,.nav-card, input, #spline-viewer, .tech-info-header, .footer',
+    }
+});
+
 export const initializeCursor = () => {
-    MouseFollower.registerGSAP(gsap);
-
-    const cursor = new MouseFollower({
-        iconSvgSrc: 'assets/cursors.svg',
-        stateDetection: {
-            '-pointer': 'a,button,.nav-card, input, #spline-viewer, .tech-info-header, .footer',
-        }
-    });
-
+    MouseFollower.registerGSAP(gsap)
     cursor.setIcon('default')
 
     const pointerCursorTargets = document.querySelectorAll('a, button, .nav-card, input, .footer');
@@ -293,6 +293,29 @@ export const initializeCursor = () => {
         e.addEventListener('mouseover', () => {
             cursor.setIcon('drag');
         });
+
+        e.addEventListener('mouseleave', () => {
+            cursor.setIcon('default')
+        });
+    })
+
+    const closeCursorTargets = document.querySelectorAll('.reel-block')
+    closeCursorTargets.forEach((e) => {
+        e.addEventListener('mouseover', () => {
+            if (e.matches('.reel-block.playing'))
+                cursor.setIcon('close')
+            if (e.matches('.reel-block.muted'))
+                cursor.setIcon('default')
+        });
+
+        e.addEventListener('mousemove', () => {
+            console.log(e)
+            if (e.matches('.reel-block.playing'))
+                cursor.setIcon('close')
+            if (e.matches('.reel-block.muted'))
+                cursor.setIcon('default')
+        });
+
 
         e.addEventListener('mouseleave', () => {
             cursor.setIcon('default')
