@@ -2,13 +2,11 @@ import {
     advantagesScrollAnimation,
     reelBlockAnimation,
 } from "./animation-setup.js";
+
 import {
-    hideSplineButton,
     hideVideoControls, initializeAnimationInChecker, initializeCursor,
     initializeLenis,
     initializeWindow,
-    scaleToFit,
-    zoom
 } from "./common.js";
 
 const initializeAnimations = () => {
@@ -19,12 +17,11 @@ const initializeAnimations = () => {
 }
 
 export const onPageLoaded = () => {
-    const splineViewerInner = document.querySelector('#spline-viewer').shadowRoot;
     initializeWindow();
 
     // sorry spline(
-    hideSplineButton(splineViewerInner);
-    scaleToFit(splineViewerInner);
+    // hideSplineButton(splineViewerInner);
+    // scaleToFit(splineViewerInner);
     hideVideoControls();
 
     initializeAccessoriesController(() => {
@@ -37,8 +34,9 @@ export const onPageLoaded = () => {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     initializeAnimations();
     animateWhiteGradient();
-    parallaxAboutUs();
 
+    initializeSlick();
+    parallaxAboutUs();
 }
 
 const whiteGradient = document.querySelector(".gradient-cursor");
@@ -136,4 +134,37 @@ export const playVideoReel = () => {
         document.querySelector('.reel-block').addEventListener('click', closeVideo)
         $('.loading').addClass('hided')
     }
+}
+
+const GetWindowViewPort = () => {
+    return {
+        height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
+        width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+    };
+}
+
+var viewPort = GetWindowViewPort();
+const zoom = viewPort.width / 1440;
+const initializeSlick = () => {
+    $('.cameras-carousel').slick({
+        dots: false,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        swipeToSlide: false,
+        easing: 'easeInOut',
+    });
+
+    $(".cameras-carousel").find('.slick-slide').each(function () {
+        $(this).on("click", function (e) {
+            var target = $(e.target);
+            if (target.is('button')) {
+                const scrollPos = $(".accessories-block").offset().top + 1000;
+                gsap.to(window, {duration: 2, ease: 'power4.inOut', scrollTo: scrollPos});
+            } else if (target.is('a'))
+                window.open(target.getAttribute("href"))
+            else
+                $('.cameras-carousel').slick('slickGoTo', (this.attributes.number.value + 1) % 3, false)
+        })
+    })
 }

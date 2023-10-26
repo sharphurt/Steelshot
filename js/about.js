@@ -1,4 +1,4 @@
-import {hideVideoControls, initializeCursor, initializeLenis, initializeWindow, scaleToFit} from "./common.js";
+import {hideVideoControls, initializeCursor, initializeLenis, initializeWindow} from "./common.js";
 import {slideInAnimation} from "./animation-setup.js";
 
 const wait = (delay = 0) =>

@@ -12,9 +12,9 @@ export const modifyWindowZoom = (percentage) => {
     let root = document.documentElement;
     root.style.setProperty('--zoom-factor', percentage);
 
-    $('spline-viewer').css({
-        'transform': `scale(${percentage})`, 'transform-origin': '0 0',
-    })
+    // $('spline-viewer').css({
+    //     'transform': `scale(${percentage})`, 'transform-origin': '0 0',
+    // })
 }
 
 export const hideSplineButton = (splineInner) => {
@@ -45,6 +45,7 @@ export const initializeLenis = () => {
     checkElementsToAnimate()
 
     lenis.on("scroll", ({scroll, limit}) => {
+       // console.log(scroll)
         checkElementsToAnimate()
     });
 
@@ -261,7 +262,7 @@ var cursor = new MouseFollower({
     speed: 0.35,
     iconSvgSrc: 'assets/cursors.svg',
     stateDetection: {
-        '-pointer': 'a,button,.nav-card, input, #spline-viewer, .tech-info-header, .footer',
+        '-pointer': 'a,button,.nav-card, input, .tech-info-header, .footer',
     }
 });
 
@@ -280,7 +281,7 @@ export const initializeCursor = () => {
         });
     })
 
-    const slidingCursorTargets = document.querySelectorAll('#spline-viewer')
+    const slidingCursorTargets = document.querySelectorAll('.cameras-carousel')
     slidingCursorTargets.forEach((e) => {
         e.addEventListener('mouseover', () => {
             cursor.setIcon('slide');
