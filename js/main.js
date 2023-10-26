@@ -28,7 +28,7 @@ export const onPageLoaded = () => {
     hideVideoControls();
 
     initializeAccessoriesController(() => {
-        if (window.innerWidth > 1024)
+        if (window.innerWidth > 800)
             initializeCursor();
 
         initializeDragSlider();
