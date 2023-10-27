@@ -34,6 +34,10 @@ button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled)
     cursor: none !important;
 }
 
+span {
+    margin-bottom: 0 !important;
+}
+
 html.lenis {
     height: auto;
 }

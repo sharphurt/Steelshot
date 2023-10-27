@@ -13,6 +13,8 @@ const onPageLoaded = () => {
     initializeCursor()
 }
 
+window.onresize = function(){ initializeWindow() }
+
 const initializeAnimations = () => {
     initializeLenis()
 

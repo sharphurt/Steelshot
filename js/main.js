@@ -37,7 +37,9 @@ export const onPageLoaded = () => {
 
     initializeSlick();
     parallaxAboutUs();
+
 }
+window.onresize = function(){ initializeWindow() }
 
 const whiteGradient = document.querySelector(".gradient-cursor");
 
@@ -62,9 +64,11 @@ const animateWhiteGradient = () => {
 }
 
 function parallaxAboutUs() {
+    var x = mouseX - $('.footer').offset().left;
+    var y = mouseY - $('.footer').offset().top;
     const rectangle = document.querySelector(".us-rectangle")
     if (window.innerWidth > 1024)
-        rectangle.style.transform = `translateX(${mouseX / 90}px) translateY(${mouseY / 90 - 220}px)`;
+        rectangle.style.transform = `translateX(${x / 80}px) translateY(${y / 80}px)`;
 
     requestAnimationFrame(parallaxAboutUs);
 }

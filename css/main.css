@@ -1226,7 +1226,7 @@ input[type="radio"]:checked::before {
     .us-rectangle {
         position: absolute;
         left: 1024px;
-        top: 100px;
+        top: 90px;
 
         width: 203px;
         height: 203px;
