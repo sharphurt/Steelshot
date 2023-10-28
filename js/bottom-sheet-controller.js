@@ -11,13 +11,23 @@ const setSheetHeight = (value, sheetContents) => {
     }
 }
 
-const setIsSheetShown = (isShown, sheet,  item) => {
+const setIsSheetShown = (isShown, sheet, item) => {
     if (isShown === true) {
         MobileCatalogRenderer.renderPopup(item, document.querySelector('.item-detailed-info'))
-        $('body').css("overflow", "hidden");
-    } else
+        {
+            $('body').css("overflow", "hidden");
+            $('html').css({
+                'overflow': 'hidden',
+                'overscroll-behavior': 'none'
+            })
+        }
+    } else {
         $('body').css("overflow", "auto");
-
+        $('html').css({
+            'overflow': 'auto',
+            'overscroll-behavior': 'unset'
+        })
+    }
     sheet.setAttribute("aria-hidden", String(!isShown))
 }
 
