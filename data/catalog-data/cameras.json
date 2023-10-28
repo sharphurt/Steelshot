@@ -2,6 +2,7 @@
   "collection-name": "cameras",
   "collection": [
     {
+      "id": 0,
       "image": "./assets/accessories/cameras/cameras-1.png",
       "name": "Milrand X1",
       "type": "Film camera",
@@ -21,6 +22,7 @@
       }
     },
     {
+      "id": 1,
       "image": "./assets/accessories/cameras/cameras-2.png",
       "name": "LerroEver Pride Edition",
       "type": "Digital camera",
@@ -40,6 +42,7 @@
       }
     },
     {
+      "id": 2,
       "image": "./assets/accessories/cameras/cameras-3.png",
       "name": "EveryCam Pride Edition",
       "price": "$360",
@@ -59,6 +62,7 @@
       }
     },
     {
+      "id": 3,
       "image": "./assets/accessories/cameras/cameras-4.png",
       "name": "Sainet Cristal",
       "price": "$790",
@@ -78,6 +82,7 @@
       }
     },
     {
+      "id": 4,
       "image": "./assets/accessories/cameras/cameras-5.png",
       "name": "JFCam Portable",
       "price": "$950",
@@ -97,6 +102,7 @@
       }
     },
     {
+      "id": 5,
       "image": "./assets/accessories/cameras/cameras-6.png",
       "name": "JFCam OpticMS",
       "price": "$1299",
@@ -116,6 +122,7 @@
       }
     },
     {
+      "id": 6,
       "image": "./assets/accessories/cameras/cameras-7.png",
       "name": "ProCapture X1",
       "type": "SLR camera",

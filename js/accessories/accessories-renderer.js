@@ -1,4 +1,5 @@
-const baseHTML = `
+class CatalogRenderer {
+    static baseHTML = `
 <div class="item-card" id="%id%">
     <div class="image-header-container">
         <img class="item-image" draggable="false" src="%image%" width=340 height=340 alt="%name% image"/>
@@ -43,123 +44,124 @@ const baseHTML = `
 <!--    </button>-->
 </div>`
 
-const hideElement = (html, property) => {
-    return html.replaceAll(`${property}`, `${property} hidden`)
-}
-
-const setBaseInfo = (baseHTML, item) => {
-    let result = baseHTML;
-    result = result.replaceAll('%id%', item.id)
-
-    if (item['image'] !== undefined)
-        result = result.replaceAll('%image%', item.image)
-    else
-        result = hideElement(result, 'item-image')
-
-    if (item['name'] !== undefined)
-        result = result.replaceAll('%name%', item.name)
-    else
-        result = hideElement(result, 'item-name')
-
-    if (item['price'] !== undefined)
-        result = result.replaceAll('%price%', item.price)
-    else
-        result = hideElement(result, 'item-price')
-
-    if (item['type'] !== undefined)
-        result = result.replaceAll('%type%', item.type)
-    else
-        result = hideElement(result, 'item-type')
-
-    if (item['description'] !== undefined)
-        result = result.replaceAll('%description%', item.description)
-    else
-        result = hideElement(result, 'item-description')
-
-    return result;
-}
-
-const setTechnicalInfo = (baseHTML, item) => {
-    const techInfo = item['technical'];
-    if (techInfo === undefined) {
-        return hideElement(baseHTML, 'tech-info-wrapper');
+    static hideElement = (html, property) => {
+        return html.replaceAll(`${property}`, `${property} hidden`)
     }
 
-    const DOMItem = document.createElement('div');
-    DOMItem.innerHTML = baseHTML;
-    const container = $(DOMItem).find('.tech-info-container');
+    static setBaseInfo = (baseHTML, item) => {
+        let result = baseHTML;
+        result = result.replaceAll('%id%', item.id)
 
-    Object.entries(techInfo).forEach(function (e) {
-        const readableName = namesMapping[e[0]];
-        const value = e[1];
-        const html = `
+        if (item['image'] !== undefined)
+            result = result.replaceAll('%image%', item.image)
+        else
+            result = this.hideElement(result, 'item-image')
+
+        if (item['name'] !== undefined)
+            result = result.replaceAll('%name%', item.name)
+        else
+            result = this.hideElement(result, 'item-name')
+
+        if (item['price'] !== undefined)
+            result = result.replaceAll('%price%', item.price)
+        else
+            result = this.hideElement(result, 'item-price')
+
+        if (item['type'] !== undefined)
+            result = result.replaceAll('%type%', item.type)
+        else
+            result = this.hideElement(result, 'item-type')
+
+        if (item['description'] !== undefined)
+            result = result.replaceAll('%description%', item.description)
+        else
+            result = this.hideElement(result, 'item-description')
+
+        return result;
+    }
+
+    static setTechnicalInfo = (baseHTML, item) => {
+        const techInfo = item['technical'];
+        if (techInfo === undefined) {
+            return this.hideElement(baseHTML, 'tech-info-wrapper');
+        }
+
+        const DOMItem = document.createElement('div');
+        DOMItem.innerHTML = baseHTML;
+        const container = $(DOMItem).find('.tech-info-container');
+
+        Object.entries(techInfo).forEach(function (e) {
+            const readableName = namesMapping[e[0]];
+            const value = e[1];
+            const html = `
             <div>  
                 <span class="text-t3">${readableName}</span>
                 <span class="text-t3">${value}</span>
             </div>
         `
-        container.append(html);
-    });
+            container.append(html);
+        });
 
-    return DOMItem.innerHTML;
-}
-
-const setPropertiesInfo = (baseHTML, item) => {
-    const properties = item['properties'];
-    if (properties === undefined) {
-        let result = hideElement(baseHTML, 'properties-info-container');
-        return hideElement(result, 'properties-divider')
+        return DOMItem.innerHTML;
     }
 
-    const DOMItem = document.createElement('div');
-    DOMItem.innerHTML = baseHTML;
-    const container = $(DOMItem).find('.properties-info-container');
+    static setPropertiesInfo = (baseHTML, item) => {
+        const properties = item['properties'];
+        if (properties === undefined) {
+            let result = this.hideElement(baseHTML, 'properties-info-container');
+            return this.hideElement(result, 'properties-divider')
+        }
 
-    Object.entries(properties).forEach(function (e) {
-        const readableName = namesMapping[e[0]];
-        const value = e[1];
-        const html = `
+        const DOMItem = document.createElement('div');
+        DOMItem.innerHTML = baseHTML;
+        const container = $(DOMItem).find('.properties-info-container');
+
+        Object.entries(properties).forEach(function (e) {
+            const readableName = namesMapping[e[0]];
+            const value = e[1];
+            const html = `
             <div>  
                 <span class="text-t3">${readableName}</span>
                 <span class="text-t3">${value}</span>
             </div>
         `
-        container.append(html);
-    });
+            container.append(html);
+        });
 
-    return DOMItem.innerHTML;
-}
+        return DOMItem.innerHTML;
+    }
 
-const setColorsSelector = (baseHTML, item) => {
-    const colors = item['available-colors'];
-    if (colors === undefined)
-        return hideElement(baseHTML, 'color-selector')
+    static setColorsSelector = (baseHTML, item) => {
+        const colors = item['available-colors'];
+        if (colors === undefined)
+            return this.hideElement(baseHTML, 'color-selector')
 
-    const DOMItem = document.createElement('div');
-    DOMItem.innerHTML = baseHTML;
-    const container = $(DOMItem).find('.color-selector');
+        const DOMItem = document.createElement('div');
+        DOMItem.innerHTML = baseHTML;
+        const container = $(DOMItem).find('.color-selector');
 
-    colors.forEach(function (e, i) {
-        let html = `<input type="radio" style="background-color: ${e}; border-color: ${e};" id="${e}" name="${item.id}" value="${e}" />`
-        if (i === 0)
-            html = `<input type="radio" checked style="background-color: ${e}; border-color: ${e};" id="${e}" name="${item.id}" value="${e}" />`
-        container.append(html);
-    });
+        colors.forEach(function (e, i) {
+            let html = `<input type="radio" style="background-color: ${e}; border-color: ${e};" id="${e}" name="${item.id}" value="${e}" />`
+            if (i === 0)
+                html = `<input type="radio" checked style="background-color: ${e}; border-color: ${e};" id="${e}" name="${item.id}" value="${e}" />`
+            container.append(html);
+        });
 
-    return DOMItem.innerHTML;
-}
+        return DOMItem.innerHTML;
+    }
 
-const getItemHTML = (item) => {
-    let html = setBaseInfo(baseHTML, item);
-    html = setColorsSelector(html, item);
-    html = setPropertiesInfo(html, item);
-    html = setTechnicalInfo(html, item);
+    static getItemHTML = (item) => {
+        let html = this.setBaseInfo(this.baseHTML, item);
+        html = this.setColorsSelector(html, item);
+        html = this.setPropertiesInfo(html, item);
+        html = this.setTechnicalInfo(html, item);
 
-    return document.createElement('div').innerHTML = html;
-}
+        return document.createElement('div').innerHTML = html;
+    }
 
-const renderCatalog = (catalogElements, parentElement) => {
-    catalogElements.forEach(function (e) {
-        parentElement.append(getItemHTML(e));
-    })
+    static renderCatalog = (catalogElements, parentElement) => {
+        catalogElements.forEach((e) => {
+            parentElement.append(this.getItemHTML(e));
+        })
+    }
 }

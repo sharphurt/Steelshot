@@ -2,6 +2,7 @@
   "collection-name": "lenses",
   "collection": [
     {
+      "id": 15,
       "image": "./assets/accessories/lenses/lenses-1.png",
       "name": "Lens FOS 229-37/38",
       "type": "Telephoto auxiliary lens",
@@ -25,6 +26,7 @@
       }
     },
     {
+      "id": 16,
       "image": "./assets/accessories/lenses/lenses-2.png",
       "name": "Lens FOS 229-37/38",
       "type": "Telephoto auxiliary lens",
@@ -48,6 +50,7 @@
       }
     },
     {
+      "id": 17,
       "image": "./assets/accessories/lenses/lenses-3.png",
       "name": "Lens FOS 229-37/38",
       "type": "Telephoto auxiliary lens",
@@ -71,6 +74,7 @@
       }
     },
     {
+      "id": 18,
       "image": "./assets/accessories/lenses/lenses-4.png",
       "name": "Lens FOS 229-37/38",
       "type": "Telephoto auxiliary lens",

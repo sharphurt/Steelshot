@@ -14,7 +14,6 @@ const loadCatalogs = (names, callback) => {
             catalogs[data['collection-name']] = data['collection'];
         })
 
-        enumerateCatalogs();
         callback();
     }, function () {
         // TODO: error occurred
@@ -32,18 +31,6 @@ const loadNamesMappingTable = (callback) => {
 
 const isObjectEmpty = (objectName) => {
     return Object.keys(objectName).length === 0
-}
-
-const enumerateCatalogs = () => {
-    const catalogNames = Object.keys(catalogs);
-    let counter = 0
-
-    catalogNames.forEach(function (name) {
-        catalogs[name].forEach(function (e) {
-            e['id'] = counter;
-            counter++;
-        })
-    })
 }
 
 const loadAllData = (catalogNames, callback) => {

@@ -2,24 +2,28 @@
   "collection-name": "batteries",
   "collection": [
     {
+      "id": 7,
       "image": "./assets/accessories/batteries/batteries-1.png",
       "name": "EcoCharge LIX",
       "price": "$29.99",
       "description": "Optional rechargeable battery with fast charging for extended shooting. High capacity, compatible with various models"
     },
     {
+      "id": 8,
       "image": "./assets/accessories/batteries/batteries-2.png",
       "name": "UltraMax NiMH",
       "price": "$49.99",
       "description": "Extra battery with fast charging for extended shooting. It has a high capacity that allows you to shoot for long periods of time without having to replace it."
     },
     {
+      "id": 9,
       "image": "./assets/accessories/batteries/batteries-3.png",
       "name": "InfinityPlus LIX",
       "price": "$460",
       "description": "A set of universal spare batteries for various devices. Compatible with different cameras, long service life"
     },
     {
+      "id": 10,
       "image": "./assets/accessories/batteries/batteries-4.png",
       "name": "TurboCharge NiMH ",
       "price": "$15",

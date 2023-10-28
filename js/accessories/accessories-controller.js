@@ -1,8 +1,8 @@
-const initializeAccessoriesController = (callback) => {
+const initializeAccessoriesController = (device, callback) => {
     const catalogContainer = $('.slider-area')
 
     loadAllData(['cameras', 'lenses', 'cases', 'stands', 'batteries'], function () {
-        loadTab('cameras')
+        loadTab('cameras', device)
         callback()
     })
 }
@@ -20,10 +20,16 @@ const clearContainer = () => {
 
 var itemsInCart = []
 
-const loadTab = (tabName) => {
+const loadTab = (tabName, device) => {
     const catalogContainer = $('.slider-area');
 
-    renderCatalog(catalogs[tabName], catalogContainer);
+    if (device === 'desktop')
+        CatalogRenderer.renderCatalog(catalogs[tabName], catalogContainer);
+    if (device === 'mobile') {
+        MobileCatalogRenderer.renderCatalog(catalogs[tabName], tabName, catalogContainer)
+        linkItems()
+    }
+
     initializeTechnicalInfoToggle();
 
     catalogContainer.children('div').css({
@@ -66,13 +72,13 @@ const initializeTechnicalInfoToggle = () => {
 }
 
 
-const onTabButtonClick = (tab) => {
+const onTabButtonClick = (tab, device) => {
     const currentTab = $('.tab-btn.active')
 
     if (!currentTab.attr('class').includes(tab)) {
         clearContainer();
         setTimeout(() => {
-            loadTab(tab)
+            loadTab(tab, device)
         }, 200);
 
         currentTab.removeClass('active')

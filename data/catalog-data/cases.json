@@ -2,6 +2,7 @@
   "collection-name": "cases",
   "collection": [
     {
+      "id": 11,
       "image": "./assets/accessories/bags/bags-1.png",
       "name": "PhotoGear ProCase 920",
       "price": "$4 780",
@@ -16,6 +17,7 @@
       }
     },
     {
+      "id": 12,
       "image": "./assets/accessories/bags/bags-2.png",
       "name": "OptiCarry 550X",
       "price": "$499,99",
@@ -30,6 +32,7 @@
       }
     },
     {
+      "id": 13,
       "image": "./assets/accessories/bags/bags-3.png",
       "name": "CamSafe Xpress 630",
       "price": "$350",
@@ -44,6 +47,7 @@
       }
     },
     {
+      "id": 14,
       "image": "./assets/accessories/bags/bags-4.png",
       "name": "SnapGuard 7300E",
       "price": "$500",

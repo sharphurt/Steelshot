@@ -2,6 +2,7 @@
   "collection-name": "stands",
   "collection": [
     {
+      "id": 19,
       "image": "./assets/accessories/stands/stands-1.png",
       "name": "FlexiPod X11",
       "price": "$20",
@@ -17,6 +18,7 @@
       }
     },
     {
+      "id": 20,
       "image": "./assets/accessories/stands/stands-2.png",
       "name": "UltraTripod S90",
       "price": "$39",
@@ -32,6 +34,7 @@
       }
     },
     {
+      "id": 21,
       "image": "./assets/accessories/stands/stands-3.png",
       "name": "ProStance X1",
       "price": "$50",
@@ -47,6 +50,7 @@
       }
     },
     {
+      "id": 22,
       "image": "./assets/accessories/stands/stands-4.png",
       "name": "CamFlex 340T",
       "price": "$99.99",

@@ -18,13 +18,9 @@ const initializeAnimations = () => {
 
 export const onPageLoaded = () => {
     initializeWindow();
-
-    // sorry spline(
-    // hideSplineButton(splineViewerInner);
-    // scaleToFit(splineViewerInner);
     hideVideoControls();
 
-    initializeAccessoriesController(() => {
+    initializeAccessoriesController('desktop',() => {
         if (window.innerWidth > 800)
             initializeCursor();
 
