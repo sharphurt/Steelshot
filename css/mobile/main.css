@@ -989,11 +989,12 @@ section {
 }
 
 .sheet * {
-    overscroll-behavior: contain;
+    overscroll-behavior-y: contain;
 }
 
 .sheet {
-    overscroll-behavior: contain;
+    overscroll-behavior-y: contain;
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
