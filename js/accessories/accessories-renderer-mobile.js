@@ -28,7 +28,7 @@ class MobileCatalogRenderer {
     <img class="item-image" src="%image%">
     <div class="item-text-container">
         <span class="text-t1-bold item-name">%name%</span>
-        <span class="text-t1-bold item-price">%price%</span>
+        <span class="text-t2-bold item-price">%price%</span>
         <span class="text-t3 item-type">%type%</span>
     </div>
     <div class="divider"></div>

@@ -917,6 +917,10 @@ section {
             object-fit: cover;
         }
 
+        .item-price, .item-type {
+            color: var(--text-secondary)
+        }
+
         .properties-info-container {
             display: flex;
             flex-direction: column;
@@ -982,6 +986,10 @@ section {
     .hidden {
         display: none !important;
     }
+}
+
+.sheet * {
+    overscroll-behavior: contain;
 }
 
 .sheet {
