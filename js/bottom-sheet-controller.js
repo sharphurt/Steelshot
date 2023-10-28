@@ -55,6 +55,8 @@ const initializeBottomSheet = () => {
 
         setSheetHeight(sheetHeight + deltaHeight, sheetContents)
         dragPosition = y
+
+        event.preventDefault();
     }
 
     const onDragEnd = () => {
