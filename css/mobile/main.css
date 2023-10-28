@@ -28,11 +28,17 @@
 }
 
 body, html {
+    overscroll-behavior: contain;
+
     padding: 0;
     display: flex;
     margin: 0;
 
     flex-direction: column;
+}
+
+html * {
+    overscroll-behavior: contain;
 }
 
 body {
