@@ -16,17 +16,9 @@ const setIsSheetShown = (isShown, sheet, item) => {
         MobileCatalogRenderer.renderPopup(item, document.querySelector('.item-detailed-info'))
         {
             $('body').css("overflow", "hidden");
-            $('html').css({
-                'overflow': 'hidden',
-                'overscroll-behavior': 'none'
-            })
         }
     } else {
         $('body').css("overflow", "auto");
-        $('html').css({
-            'overflow': 'auto',
-            'overscroll-behavior': 'unset'
-        })
     }
     sheet.setAttribute("aria-hidden", String(!isShown))
 }
