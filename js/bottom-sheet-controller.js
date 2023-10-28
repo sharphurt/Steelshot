@@ -14,9 +14,7 @@ const setSheetHeight = (value, sheetContents) => {
 const setIsSheetShown = (isShown, sheet, item) => {
     if (isShown === true) {
         MobileCatalogRenderer.renderPopup(item, document.querySelector('.item-detailed-info'))
-        {
-            $('body').css("overflow", "hidden");
-        }
+        $('body').css("overflow", "hidden");
     } else {
         $('body').css("overflow", "auto");
     }
@@ -40,6 +38,9 @@ const initializeBottomSheet = () => {
     let dragPosition
 
     const onDragStart = (event) => {
+        if ($('#sheet main').scrollTop() !== 0)
+            return
+
         dragPosition = touchPosition(event).pageY
         sheetContents.classList.add("not-selectable")
         draggableArea.style.cursor = document.body.style.cursor = "grabbing"

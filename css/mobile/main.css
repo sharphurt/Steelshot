@@ -909,9 +909,9 @@ section {
         box-sizing: border-box;
 
         .item-image {
-            transition: height 0.3s ease-out, object-position 0.3s ease-in;
+            transition: height 0.3s ease-out, object-position 0.3s ease-in, border-radius 0.3s ease-in;
             object-position: center center;
-            height: 180px;
+            height: 230px;
             width: 100%;
             border-radius: 16px 16px 0 0;
             object-fit: cover;
@@ -1073,8 +1073,9 @@ section {
 }
 
 .fullscreen .item-image {
-    transition: height 0.3s ease-out, object-position 0.3s ease-in;
+    transition: height 1s ease-out, object-position 0.3s ease-in, border-radius 0.3s ease-in;
     height: 400px !important;
+    border-radius: 16px !important;
     object-position: center top;
 }
 
