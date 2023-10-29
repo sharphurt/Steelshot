@@ -46,17 +46,48 @@ const initializeBottomSheet = () => {
         draggableArea.style.cursor = document.body.style.cursor = "grabbing"
     }
 
+    function map(value, in_min, in_max, out_min, out_max) {
+        return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+    }
+
+    const resizeObserver = new ResizeObserver((callback) => {
+        $('#sheet .item-image').css({
+            'height': `${map(sheetHeight, 50, 100, 200, 400)}px`
+        })
+
+    })
+
+    const imageSizeAnimation = () => {
+        const popupHeight = sheetContents.clientHeight * zoom;
+        var innerHeight = window.innerHeight;
+        var percentHeight = Math.round((popupHeight / innerHeight) * 100);
+
+        $('#sheet .item-image').css({
+            'height': `${map(percentHeight, 50, 100, 200, 400)}px`
+        })
+
+        requestAnimationFrame(imageSizeAnimation)
+    }
+
+    imageSizeAnimation()
+
+    resizeObserver.observe(sheetContents)
+
+    let lastDirection = 1
+
     const onDragMove = (event) => {
         if (dragPosition === undefined) return
 
+
         const y = touchPosition(event).pageY
         const deltaY = dragPosition - y
+
+        lastDirection = Math.sign(deltaY)
+
         const deltaHeight = deltaY / window.innerHeight * 100
 
         setSheetHeight(sheetHeight + deltaHeight, sheetContents)
         dragPosition = y
-
-        event.preventDefault();
     }
 
     const onDragEnd = () => {
@@ -64,9 +95,11 @@ const initializeBottomSheet = () => {
         sheetContents.classList.remove("not-selectable")
         draggableArea.style.cursor = document.body.style.cursor = ""
 
-        if (sheetHeight < 70) {
+        if (sheetHeight < 85 && lastDirection === -1) {
             setIsSheetShown(false, sheet)
-        } else {
+        }
+
+        if (lastDirection === 1 || (lastDirection === -1 && sheetHeight >= 85)) {
             setSheetHeight(100, sheetContents)
         }
     }
