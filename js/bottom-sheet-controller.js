@@ -64,12 +64,10 @@ const initializeBottomSheet = () => {
         sheetContents.classList.remove("not-selectable")
         draggableArea.style.cursor = document.body.style.cursor = ""
 
-        if (sheetHeight < 25) {
+        if (sheetHeight < 50) {
             setIsSheetShown(false, sheet)
-        } else if (sheetHeight > 75) {
-            setSheetHeight(100, sheetContents)
         } else {
-            setSheetHeight(50, sheetContents)
+            setSheetHeight(100, sheetContents)
         }
     }
 
