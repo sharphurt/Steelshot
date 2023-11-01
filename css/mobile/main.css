@@ -1180,12 +1180,12 @@ section {
 }
 
 
-.reel-block .reel-video-placeholder {
+.reel-block .reel-video-wrapper {
     transition: filter 0.2s ease-in;
     filter: brightness(0.3);
 }
 
-.reel-block.playing .reel-video-placeholder {
+.reel-block.playing .reel-video-wrapper {
     transition: filter 0.2s ease-in;
     filter: brightness(1);
 }

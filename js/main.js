@@ -114,26 +114,32 @@ export const playVideoReel = () => {
         video.muted = true;
         video.loop = true;
         video.play();
-        document.querySelector('.reel-block').removeEventListener('click', closeVideo)
+        document.querySelector('.reel-close-cover').removeEventListener('click', closeVideo)
     }
 
     $('.reel-block').addClass('playing')
     $('.reel-block').removeClass('muted')
 
-    const video = document.querySelector('.reel-video-placeholder')
+    const video = document.querySelector('.reel-video-main')
+    const videoBg = document.querySelector('.reel-video-bg')
     video.muted = false;
+    videoBg.muted = true;
+
     video.loop = false;
     video.volume = 0.5;
 
     video.currentTime = 0;
+    videoBg.currentTime = 0;
     video.play()
+    videoBg.play();
+
     video.onended = closeVideo;
     video.onwaiting = () => {
         console.log('video loading')
         $('.loading').removeClass('hided')
     }
     video.onplaying = () => {
-        document.querySelector('.reel-block').addEventListener('click', closeVideo)
+        document.querySelector('.reel-close-cover').addEventListener('click', closeVideo)
         $('.loading').addClass('hided')
     }
 }

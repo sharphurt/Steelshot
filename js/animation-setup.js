@@ -86,7 +86,7 @@ export const reelBlockAnimation = () => {
         paddingRight: 16 * zoom
     });
 
-    gsap.set('.reel-video-placeholder', {
+    gsap.set('.reel-video-wrapper', {
         borderRadius: 16 * zoom
     });
 
@@ -110,7 +110,7 @@ export const reelBlockAnimation = () => {
                 paddingRight: 0,
                 duration: 0.4
             });
-            gsap.to('.reel-video-placeholder', {
+            gsap.to('.reel-video-wrapper', {
                 borderRadius: 0,
                 duration: 0.4
             })
@@ -121,7 +121,7 @@ export const reelBlockAnimation = () => {
                 paddingRight: 0,
                 duration: 0.4
             });
-            gsap.to('.reel-video-placeholder', {
+            gsap.to('.reel-video-wrapper', {
                 borderRadius: 16 * zoom,
                 duration: 0.4
             });
@@ -132,7 +132,7 @@ export const reelBlockAnimation = () => {
                 paddingRight: 0,
                 duration: 0.4
             });
-            gsap.to('.reel-video-placeholder', {
+            gsap.to('.reel-video-wrapper', {
                 borderRadius: 0,
                 duration: 0.4
             })
@@ -143,7 +143,7 @@ export const reelBlockAnimation = () => {
                 paddingRight: 0,
                 duration: 0.4
             });
-            gsap.to('.reel-video-placeholder', {
+            gsap.to('.reel-video-wrapper', {
                 borderRadius: 16 * zoom,
                 duration: 0.4
             })
