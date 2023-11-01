@@ -20,7 +20,7 @@ export const onPageLoaded = () => {
     initializeWindow();
     hideVideoControls();
 
-    initializeAccessoriesController('desktop',() => {
+    initializeAccessoriesController('desktop', () => {
         if (window.innerWidth > 800)
             initializeCursor();
 
@@ -35,7 +35,9 @@ export const onPageLoaded = () => {
     parallaxAboutUs();
 
 }
-window.onresize = function(){ initializeWindow() }
+window.onresize = function () {
+    initializeWindow()
+}
 
 const whiteGradient = document.querySelector(".gradient-cursor");
 
@@ -161,9 +163,7 @@ const initializeSlick = () => {
             if (target.is('button')) {
                 const scrollPos = $(".accessories-block").offset().top + 1000;
                 gsap.to(window, {duration: 2, ease: 'power4.inOut', scrollTo: scrollPos});
-            } else if (target.is('a'))
-                window.open(target.getAttribute("href"))
-            else
+            } else if (!target.is('a'))
                 $('.cameras-carousel').slick('slickGoTo', (this.attributes.number.value + 1) % 3, false)
         })
     })

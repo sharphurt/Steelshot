@@ -28,17 +28,11 @@
 }
 
 body, html {
-    overscroll-behavior: contain;
-
     padding: 0;
     display: flex;
     margin: 0;
 
     flex-direction: column;
-}
-
-html * {
-    overscroll-behavior: contain;
 }
 
 body {
@@ -582,6 +576,7 @@ section {
 
             .slide-descr-container {
                 position: absolute;
+                z-index: 500;
                 top: 580px;
                 left: var(--margin-side);
                 right: var(--margin-side);
@@ -892,11 +887,11 @@ section {
     }
 
     #sheet .contents.fullscreen .item-detailed-info {
-        overflow-y: scroll;
+        overflow-y: auto;
     }
 
     .item-detailed-info {
-        padding: 8px;
+        padding: 0 8px 8px;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -905,15 +900,15 @@ section {
         flex-grow: 1;
         height: 100%;
 
-        overflow-y: clip;
+        overflow-y: scroll;
         box-sizing: border-box;
 
         .item-image {
             transition: height 100ms linear, object-position 0.3s ease-in, border-radius 0.3s ease-in;
             object-position: center center;
-            height: 230px;
+            height: 480px;
             width: 100%;
-            border-radius: 16px 16px 0 0;
+            border-radius: 16px;
             object-fit: cover;
         }
 
@@ -988,13 +983,8 @@ section {
     }
 }
 
-.sheet * {
-    overscroll-behavior-y: contain;
-}
-
 .sheet {
-    overscroll-behavior-y: contain;
-    overflow: hidden;
+    overflow-y: scroll;
 
     display: flex;
     flex-direction: column;
@@ -1017,27 +1007,14 @@ section {
     pointer-events: none;
 }
 
-.sheet .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-
-
-    background-color: #000000aa;
-}
-
 .sheet .contents {
     display: flex;
     flex-direction: column;
 
+    height: calc(100vh / var(--zoom-factor));
     border-radius: 1rem 1rem 0 0;
 
     background: var(--block-bg);
-
-    overflow-y: hidden;
 
     --default-transitions: transform 0.5s, border-radius 0.5s;
 
@@ -1046,8 +1023,6 @@ section {
 
     width: 100%;
     max-width: 100%;
-    max-height: 100vh;
-    height: 30vh;
 
     box-sizing: border-box;
 }
@@ -1065,28 +1040,27 @@ section {
 }
 
 .sheet .controls {
-    display: flex;
+    height: 48px;
+
+    width: 100%;
+    position: relative;
 }
 
-.sheet .draggable-area {
-    width: 3rem;
-    margin: auto;
-    padding: 1rem;
-    cursor: grab;
+.sheet .controls .cart-btn {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.sheet .draggable-thumb {
-    width: inherit;
-    height: 0.25rem;
-    background: var(--border);
-    border-radius: 0.125rem;
-}
+.sheet .controls .closeButton {
+    border: none;
+    background-color: var(--block-bg);
 
-.fullscreen .item-image {
-    transition: height 100ms linear, object-position 0.3s ease-in, border-radius 0.3s ease-in;
-    /*height: 400 px !important;*/
-    border-radius: 16px !important;
-    object-position: center top;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .footer {
@@ -1161,4 +1135,57 @@ section {
         border-radius: 2px;
         height: 100%;
     }
+}
+
+.reel-block .tap-to-close-label {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    border-radius: 6px;
+
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    padding: 6px 10px;
+    align-items: center;
+
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+}
+
+.reel-block.playing .tap-to-close-label {
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+}
+
+.tap-to-close-label span {
+    color: var(--text-primary-d);
+}
+
+.reel-block .reel-info-wrapper div:not(video) {
+    transition: opacity 0.2s ease-in;
+    opacity: 1;
+}
+
+.reel-block.playing .reel-info-wrapper div:not(video) {
+    transition: opacity 0.2s ease-in;
+    opacity: 0;
+}
+
+.reel-block.playing video {
+    object-fit: contain;
+    background-color: black;
+}
+
+
+.reel-block .reel-video-placeholder {
+    transition: filter 0.2s ease-in;
+    filter: brightness(0.3);
+}
+
+.reel-block.playing .reel-video-placeholder {
+    transition: filter 0.2s ease-in;
+    filter: brightness(1);
 }

@@ -1,9 +1,9 @@
-const initializeAccessoriesController = (device, callback) => {
+const initializeAccessoriesController = (device, controllerLoadCallback) => {
     const catalogContainer = $('.slider-area')
 
     loadAllData(['cameras', 'lenses', 'cases', 'stands', 'batteries'], function () {
         loadTab('cameras', device)
-        callback()
+        controllerLoadCallback()
     })
 }
 
@@ -18,16 +18,13 @@ const clearContainer = () => {
     });
 }
 
-var itemsInCart = []
-
-const loadTab = (tabName, device) => {
+const loadTab = (tabName, device, callback) => {
     const catalogContainer = $('.slider-area');
 
     if (device === 'desktop')
         CatalogRenderer.renderCatalog(catalogs[tabName], catalogContainer);
     if (device === 'mobile') {
         MobileCatalogRenderer.renderCatalog(catalogs[tabName], tabName, catalogContainer)
-        linkItems()
     }
 
     initializeTechnicalInfoToggle();
@@ -42,7 +39,7 @@ const loadTab = (tabName, device) => {
         marginBottom: "0",
     }, 200);
 
-    document.querySelectorAll('.cart-btn').forEach((e) => {
+    document.querySelectorAll('.slider-area .cart-btn').forEach((e) => {
         if (itemsInCart.includes(e.getAttribute('id')))
             e.classList.add('added')
 
@@ -50,10 +47,11 @@ const loadTab = (tabName, device) => {
             if (!itemsInCart.includes(e.getAttribute('id'))) {
                 itemsInCart.push(e.getAttribute('id'))
                 e.classList.add('added')
+
             } else {
                 const index = itemsInCart.indexOf(e.getAttribute('id'))
                 if (index > -1)
-                    itemsInCart.splice(index)
+                    itemsInCart.splice(index, 1)
 
                 e.classList.remove('added')
             }
@@ -79,6 +77,10 @@ const onTabButtonClick = (tab, device) => {
         clearContainer();
         setTimeout(() => {
             loadTab(tab, device)
+
+            if (device === 'mobile')
+                initializeBottomSheet()
+
         }, 200);
 
         currentTab.removeClass('active')

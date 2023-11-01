@@ -660,6 +660,12 @@ spline-viewer {
     opacity: 0;
 }
 
+.reel-block.playing video {
+    object-fit: contain;
+    background-color: black;
+}
+
+
 .reel-block .reel-video-placeholder {
     transition: filter 0.2s ease-in;
     filter: brightness(0.3);

@@ -187,6 +187,10 @@ video {
     border-radius: 16px;
 }
 
+iframe {
+    border-radius: 16px;
+}
+
 .thx-block {
     margin-left: 135px;
     margin-bottom: 64px;
